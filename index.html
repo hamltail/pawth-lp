@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pawth | 日々の足あとを描く日記アプリ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Portfolio Landing Page</p>
+        <h1 class="hero__title">Pawth <span class="hero__emoji">🐾</span></h1>
+        <p class="hero__subtitle">日々の足あとを描く、1日1投稿の小さな日記アプリ</p>
+        <p class="hero__description">Pawthは、日々の歩みを可視化し、その日の記録にコミットするための日記アプリです。</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#">GitHubを見る</a>
+          <a class="button button--secondary" href="#concept">コンセプトを見る</a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="visual-card visual-card--hero">
+          <img class="visual-card__image" src="images/pawth-calendar.png" alt="Pawth カレンダー画面">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--intro" id="screens">
+      <div class="section__header">
+        <p class="section__eyebrow">アプリ画面紹介</p>
+        <h2 class="section__title">Pawth の3つの画面</h2>
+      </div>
+      <div class="screen-grid">
+        <article class="screen-card">
+          <img class="screen-card__image" src="images/pawth-calendar.png" alt="カレンダー画面">
+          <div class="screen-card__body">
+            <h3 class="screen-card__title">カレンダー画面</h3>
+            <p class="screen-card__text">日々の足あとを一目で確認し、投稿のリズムを可視化します。</p>
+          </div>
+        </article>
+        <article class="screen-card">
+          <img class="screen-card__image" src="images/pawth-list.png" alt="日記一覧画面">
+          <div class="screen-card__body">
+            <h3 class="screen-card__title">日記一覧画面</h3>
+            <p class="screen-card__text">過去の投稿を振り返りやすく、内省のための一覧表示です。</p>
+          </div>
+        </article>
+        <article class="screen-card">
+          <img class="screen-card__image" src="images/pawth-modal.png" alt="日記投稿モーダル画面">
+          <div class="screen-card__body">
+            <h3 class="screen-card__title">日記投稿モーダル</h3>
+            <p class="screen-card__text">1日1投稿のシンプルな入力体験で、気軽に記録できます。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--concept" id="concept">
+      <div class="section__header">
+        <p class="section__eyebrow">コンセプト</p>
+        <h2 class="section__title">目的は、今日の自分にコミットすること</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3 class="feature-card__title">1日1投稿まで</h3>
+          <p class="feature-card__text">毎日の記録に制約を設けることで、投稿の価値を高めます。</p>
+        </article>
+        <article class="feature-card">
+          <h3 class="feature-card__title">当日内は削除不可</h3>
+          <p class="feature-card__text">今日の記録はその日の自分への約束として残します。</p>
+        </article>
+        <article class="feature-card">
+          <h3 class="feature-card__title">編集は最大3回まで</h3>
+          <p class="feature-card__text">振り返りを促しつつ、過度な修正を防ぎます。</p>
+        </article>
+        <article class="feature-card">
+          <h3 class="feature-card__title">翌日以降は削除可</h3>
+          <p class="feature-card__text">時間を置いた判断で整理できる柔軟性を残します。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--negative">
+      <div class="section__header">
+        <p class="section__eyebrow">非採用機能</p>
+        <h2 class="section__title">Pawth の設計思想</h2>
+      </div>
+      <ul class="negative-list">
+        <li class="negative-list__item">SNS化しない</li>
+        <li class="negative-list__item">タイムラインなし</li>
+        <li class="negative-list__item">フォロー/フォロワーなし</li>
+        <li class="negative-list__item">内省に最適化</li>
+      </ul>
+    </section>
+
+    <section class="section section--tech">
+      <div class="section__header">
+        <p class="section__eyebrow">技術・設計ポイント</p>
+        <h2 class="section__title">開発で重視したこと</h2>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">Ruby on Rails</div>
+        <div class="tech-card">RSpec</div>
+        <div class="tech-card">Playwright</div>
+        <div class="tech-card">Docker</div>
+        <div class="tech-card">AWS想定</div>
+        <div class="tech-card">制約設計</div>
+        <div class="tech-card">UX改善視点</div>
+      </div>
+    </section>
+
+    <section class="section section--highlights">
+      <div class="section__header">
+        <p class="section__eyebrow">ポートフォリオとしての見どころ</p>
+        <h2 class="section__title">単なるCRUDを超えた設計</h2>
+      </div>
+      <div class="highlights">
+        <p class="highlight">単なるCRUDではなく、習慣化と内省を支える設計。</p>
+        <p class="highlight">UIだけでなく、使い方の制約まで設計している。</p>
+        <p class="highlight">QA・UX視点を意識した個人開発。</p>
+      </div>
+    </section>
+
+    <section class="section section--notice">
+      <div class="notice-card">
+        <p class="notice-card__text">現在、本番環境の公開は停止しています。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
