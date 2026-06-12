@@ -79,4 +79,29 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
+
+  const backToTopButton = document.querySelector('.back-to-top');
+  const scrollThreshold = 320;
+
+  const updateBackToTopVisibility = () => {
+    if (!backToTopButton) return;
+    if (window.scrollY > scrollThreshold) {
+      backToTopButton.classList.add('is-visible');
+    } else {
+      backToTopButton.classList.remove('is-visible');
+    }
+  };
+
+  const scrollToTop = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.scrollTo({ top: 0, left: 0 });
+      return;
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
+  backToTopButton?.addEventListener('click', scrollToTop);
+  window.addEventListener('scroll', updateBackToTopVisibility);
+  updateBackToTopVisibility();
 });
