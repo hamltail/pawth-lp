@@ -273,6 +273,17 @@ a {
   font-weight: 700;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1);
+  will-change: opacity, transform;
+}
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 960px) {
   .page {
     width: min(100%, calc(100% - 2rem));
