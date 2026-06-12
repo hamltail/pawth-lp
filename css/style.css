@@ -98,23 +98,70 @@ a {
   border-radius: 999px;
   border: 1px solid transparent;
   font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  transition:
+    transform 0.2s ease,
+    color 0.35s ease,
+    background-color 0.35s ease;
 }
 
 .button:hover {
   transform: translateY(-1px);
 }
 
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+
 .button--primary {
   background: var(--primary);
   color: #fff;
+  border-color: var(--primary);
   box-shadow: 0 14px 32px rgba(109, 40, 217, 0.14);
+}
+
+.button--primary::before {
+  background: #fff;
+  transform-origin: left;
+}
+
+.button--primary:hover::before,
+.button--primary:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.button--primary:hover,
+.button--primary:focus-visible {
+  color: var(--primary);
 }
 
 .button--secondary {
   background: #fff;
   color: var(--primary);
   border-color: var(--primary);
+}
+
+.button--secondary::before {
+  background: var(--primary);
+  transform-origin: left;
+}
+
+.button--secondary:hover::before,
+.button--secondary:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.button--secondary:hover,
+.button--secondary:focus-visible {
+  color: #fff;
 }
 
 .hero__visual {
