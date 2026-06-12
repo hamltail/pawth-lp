@@ -282,10 +282,88 @@ a {
   object-fit: contain;
   background: #f8f5ff;
   padding: 1rem;
+  cursor: zoom-in;
 }
 
 .screen-card__body {
   padding: 1.5rem;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  padding: 2rem;
+}
+
+.modal.is-open {
+  display: flex;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.modal__content {
+  position: relative;
+  width: min(100%, 72rem);
+  max-height: min(100%, 92vh);
+  overflow: hidden;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 36px 80px rgba(15, 23, 42, 0.24);
+}
+
+.modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+}
+
+.modal__close:hover,
+.modal__close:focus-visible {
+  background: rgba(255, 255, 255, 1);
+}
+
+.modal__figure {
+  margin: 0;
+  display: grid;
+}
+
+.modal__image {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  background: #f8f5ff;
+  display: block;
+}
+
+.modal__caption {
+  margin: 0;
+  padding: 1rem 1.5rem 1.5rem;
+  color: var(--text);
+  background: #fff;
+  font-weight: 700;
 }
 
 .screen-card__title,

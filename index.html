@@ -129,6 +129,18 @@
       </div>
     </section>
   </main>
+
+  <div class="modal modal--image" id="image-modal" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="image-modal-title">
+      <button type="button" class="modal__close" aria-label="Close image preview">×</button>
+      <figure class="modal__figure">
+        <img class="modal__image" src="" alt="" />
+        <figcaption class="modal__caption" id="image-modal-title"></figcaption>
+      </figure>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 </html>

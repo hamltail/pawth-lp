@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (prefersReduced) {
     screenCards.forEach((card) => card.classList.add('is-visible'));
-    return;
   }
 
   const introObserver = new IntersectionObserver((entries, observer) => {
@@ -40,4 +39,44 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   introObserver.observe(introSection);
+
+  const modal = document.getElementById('image-modal');
+  const modalOverlay = modal?.querySelector('[data-modal-close]');
+  const modalClose = modal?.querySelector('.modal__close');
+  const modalImage = modal?.querySelector('.modal__image');
+  const modalCaption = modal?.querySelector('.modal__caption');
+
+  const openModal = (src, alt) => {
+    if (!modal || !modalImage || !modalCaption) return;
+    modalImage.src = src;
+    modalImage.alt = alt || '';
+    modalCaption.textContent = alt || '';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    if (!modal || !modalImage) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    modalImage.src = '';
+    modalImage.alt = '';
+    document.body.style.overflow = '';
+  };
+
+  const screenImages = document.querySelectorAll('.section--intro .screen-card__image');
+  screenImages.forEach((image) => {
+    image.addEventListener('click', () => {
+      openModal(image.src, image.alt);
+    });
+  });
+
+  modalOverlay?.addEventListener('click', closeModal);
+  modalClose?.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal?.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
 });
