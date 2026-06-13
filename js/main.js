@@ -104,4 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
   backToTopButton?.addEventListener('click', scrollToTop);
   window.addEventListener('scroll', updateBackToTopVisibility);
   updateBackToTopVisibility();
+
+  const heroImages = document.querySelectorAll('.hero-image');
+
+  if (heroImages.length >= 2) {
+    let current = 0;
+
+    setInterval(() => {
+      heroImages[current].classList.remove('hero-image--active');
+
+      current = (current + 1) % heroImages.length;
+
+      heroImages[current].classList.add('hero-image--active');
+    }, 6000);
+  }
 });
