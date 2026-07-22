@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import BackToTop from "../components/BackToTop";
 import Concept from "../components/Concept";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -29,9 +30,7 @@ export default function Home() {
     <>
       <main className="page">
         <Hero />
-
         <Screens onImageClick={setSelectedImage} />
-
         <Concept />
         <Negative />
         <Tech />
@@ -45,6 +44,7 @@ export default function Home() {
       />
 
       <Footer />
+      <BackToTop />
     </>
   );
 }
