@@ -1,4 +1,15 @@
-export default function Screens() {
+"use client";
+
+type ScreenImage = {
+  src: string;
+  alt: string;
+};
+
+type ScreensProps = {
+  onImageClick: (image: ScreenImage) => void;
+};
+
+export default function Screens({ onImageClick }: ScreensProps) {
   return (
     <section className="section section--intro" id="screens">
       <div className="section__header">
@@ -12,6 +23,12 @@ export default function Screens() {
             className="screen-card__image"
             src="/images/pawth-calendar.png"
             alt="カレンダー画面"
+            onClick={() =>
+              onImageClick({
+                src: "/images/pawth-calendar.png",
+                alt: "カレンダー画面",
+              })
+            }
           />
 
           <div className="screen-card__body">
@@ -27,6 +44,12 @@ export default function Screens() {
             className="screen-card__image"
             src="/images/pawth-list.png"
             alt="日記一覧画面"
+            onClick={() =>
+              onImageClick({
+                src: "/images/pawth-list.png",
+                alt: "日記一覧画面",
+              })
+            }
           />
 
           <div className="screen-card__body">
@@ -42,6 +65,12 @@ export default function Screens() {
             className="screen-card__image"
             src="/images/pawth-modal.png"
             alt="日記投稿モーダル画面"
+            onClick={() =>
+              onImageClick({
+                src: "/images/pawth-modal.png",
+                alt: "日記投稿モーダル画面",
+              })
+            }
           />
 
           <div className="screen-card__body">
