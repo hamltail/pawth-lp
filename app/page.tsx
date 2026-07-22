@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import BackToTop from "../components/BackToTop";
 import Concept from "../components/Concept";
+import FadeInObserver from "../components/FadeInObserver";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Highlights from "../components/Highlights";
@@ -28,6 +29,8 @@ export default function Home() {
 
   return (
     <>
+      <FadeInObserver />
+
       <main className="page">
         <Hero />
         <Screens onImageClick={setSelectedImage} />
