@@ -1,7 +1,10 @@
-import Hero from "../components/Hero";
-import Screens from "../components/Screens";
 import Concept from "../components/Concept";
+import Hero from "../components/Hero";
+import Highlights from "../components/Highlights";
 import Negative from "../components/Negative";
+import Notice from "../components/Notice";
+import Screens from "../components/Screens";
+import Tech from "../components/Tech";
 
 export default function Home() {
   return (
@@ -10,6 +13,9 @@ export default function Home() {
       <Screens />
       <Concept />
       <Negative />
+      <Tech />
+      <Highlights />
+      <Notice />
     </main>
   );
 }
