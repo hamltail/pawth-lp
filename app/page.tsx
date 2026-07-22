@@ -1,6 +1,7 @@
 import Hero from "../components/Hero";
 import Screens from "../components/Screens";
 import Concept from "../components/Concept";
+import Negative from "../components/Negative";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Screens />
       <Concept />
+      <Negative />
     </main>
   );
 }
