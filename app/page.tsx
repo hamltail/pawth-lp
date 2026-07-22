@@ -1,4 +1,5 @@
 import Concept from "../components/Concept";
+import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Highlights from "../components/Highlights";
 import Negative from "../components/Negative";
@@ -8,14 +9,18 @@ import Tech from "../components/Tech";
 
 export default function Home() {
   return (
-    <main className="page">
-      <Hero />
-      <Screens />
-      <Concept />
-      <Negative />
-      <Tech />
-      <Highlights />
-      <Notice />
-    </main>
+    <>
+      <main className="page">
+        <Hero />
+        <Screens />
+        <Concept />
+        <Negative />
+        <Tech />
+        <Highlights />
+        <Notice />
+      </main>
+
+      <Footer />
+    </>
   );
 }
