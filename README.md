@@ -14,6 +14,7 @@ Pawth の紹介・ポートフォリオ用に制作したランディングペ�
 - React
 - TypeScript
 - Tailwind CSS
+- Docker
 - Vercel
 
 ## Technical Decisions
@@ -21,6 +22,34 @@ Pawth の紹介・ポートフォリオ用に制作したランディングペ�
 当初は HTML・CSS・JavaScript による静的サイトとして制作し、その後 Next.js へ移行しました。
 
 セクションごとにコンポーネントを分離し、保守性と再利用性を意識した構成としています。
+
+## Docker
+
+### Build
+
+```bash
+docker build -t pawth-lp .
+```
+
+### Start
+
+```bash
+docker run --rm --name pawth-lp -p 3000:3000 pawth-lp
+```
+
+### Check
+
+```bash
+docker ps
+```
+
+### Stop
+
+```bash
+docker stop pawth-lp
+```
+
+`--rm` を指定しているため、停止したコンテナは自動的に削除されます。
 
 ## License
 
