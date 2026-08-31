@@ -27,3 +27,16 @@ pnpm-debug.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Lighthouse CI
+/.lighthouseci/
+
+# Reports
+/reports/

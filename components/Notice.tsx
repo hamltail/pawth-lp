@@ -1,11 +1,13 @@
+import FadeIn from "./FadeIn";
+
 export default function Notice() {
   return (
-    <section className="section section--notice fade-in">
-      <div className="notice-card">
-        <p className="notice-card__text">
+    <FadeIn className="py-16 max-[720px]:py-10">
+      <div className="rounded-3xl border border-(--notice-border) bg-(--notice-bg) p-8 text-center">
+        <p className="m-0 leading-7 font-bold text-(--notice-text)">
           現在、本番環境の公開は停止しています。
         </p>
       </div>
-    </section>
+    </FadeIn>
   );
 }

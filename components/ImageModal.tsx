@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect } from "react";
 
 type ModalImage = {
@@ -12,10 +13,7 @@ type ImageModalProps = {
   onClose: () => void;
 };
 
-export default function ImageModal({
-  image,
-  onClose,
-}: ImageModalProps) {
+export default function ImageModal({ image, onClose }: ImageModalProps) {
   useEffect(() => {
     if (!image) {
       document.body.style.overflow = "";
@@ -38,47 +36,52 @@ export default function ImageModal({
     };
   }, [image, onClose]);
 
+  if (!image) {
+    return null;
+  }
+
   return (
     <div
-      className={`modal modal--image ${image ? "is-open" : ""}`}
+      className="fixed inset-0 z-9999 flex items-center justify-center bg-slate-950/70 p-8 backdrop-blur-[6px]"
       id="image-modal"
-      aria-hidden={!image}
     >
       <div
-        className="modal__overlay"
-        data-modal-close
+        className="absolute inset-0 bg-slate-950/60"
+        aria-hidden="true"
         onClick={onClose}
       />
 
       <div
-        className="modal__content"
+        className="relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[28px] bg-(--card) shadow-[0_36px_80px_rgba(15,23,42,0.24)]"
         role="dialog"
         aria-modal="true"
         aria-labelledby="image-modal-title"
       >
         <button
           type="button"
-          className="modal__close"
+          className="absolute top-4 right-4 z-2 grid size-[2.6rem] cursor-pointer place-items-center rounded-full border border-(--border) bg-(--panel) text-[1.4rem] leading-none text-(--text)"
           aria-label="Close image preview"
           onClick={onClose}
         >
           ×
         </button>
 
-        <figure className="modal__figure">
-          {image && (
-            <img
-              className="modal__image"
+        <figure className="m-0 grid">
+          <div className="relative h-[80vh] max-h-[80vh] w-full bg-(--surface)">
+            <Image
               src={image.src}
               alt={image.alt}
+              fill
+              sizes="(max-width: 1152px) 100vw, 1152px"
+              className="object-contain"
             />
-          )}
+          </div>
 
           <figcaption
-            className="modal__caption"
+            className="m-0 bg-(--card) px-6 pt-4 pb-6 font-bold text-(--text)"
             id="image-modal-title"
           >
-            {image?.alt ?? ""}
+            {image.alt}
           </figcaption>
         </figure>
       </div>

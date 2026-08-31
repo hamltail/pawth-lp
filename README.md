@@ -2,7 +2,8 @@
 
 Pawth の紹介・ポートフォリオ用に制作したランディングページです。
 
-アプリのコンセプトや主要画面、設計思想をわかりやすく伝えることを目的として制作しました。
+アプリのコンセプトや主要画面、設計思想を伝えるとともに、
+Web開発における技術検証にも取り組んでいます。
 
 ## Live Demo
 
@@ -10,17 +11,46 @@ Pawth の紹介・ポートフォリオ用に制作したランディングペ�
 
 ## Tech Stack
 
-- Next.js
-- React
-- TypeScript
-- CSS (BEMを参考にしたクラス命名)
-- Vercel
+| Category       | Technologies                                             |
+| -------------- | -------------------------------------------------------- |
+| Frontend       | Next.js, React, TypeScript, Tailwind CSS                 |
+| Testing        | Vitest, Playwright, Stryker, axe-core, Lighthouse CI, k6 |
+| Security       | OWASP ZAP, CodeQL                                        |
+| Infrastructure | Docker, Vercel, GitHub Actions                           |
 
 ## Technical Decisions
 
-当初は HTML・CSS・JavaScript による静的サイトとして制作していましたが、2026年7月に Next.js へ移行しました。
+当初は HTML・CSS・JavaScript による静的サイトとして制作し、その後 Next.js へ移行しました。
 
 セクションごとにコンポーネントを分離し、保守性と再利用性を意識した構成としています。
+
+## Docker
+
+### Build
+
+```bash
+docker build -t pawth-lp .
+```
+
+### Start
+
+```bash
+docker run --rm --name pawth-lp -p 3000:3000 pawth-lp
+```
+
+### Check
+
+```bash
+docker ps
+```
+
+### Stop
+
+```bash
+docker stop pawth-lp
+```
+
+`--rm` を指定しているため、停止したコンテナは自動的に削除されます。
 
 ## License
 
