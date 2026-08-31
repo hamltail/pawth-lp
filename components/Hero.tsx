@@ -48,7 +48,7 @@ export default function Hero() {
 
         <div className="flex flex-wrap gap-4 max-[720px]:flex-col max-[720px]:items-stretch">
           <a
-            className="button button--primary"
+            className="button"
             href="https://github.com/hamltail/Pawth"
             target="_blank"
             rel="noopener noreferrer"
@@ -56,7 +56,7 @@ export default function Hero() {
             GitHubを見る
           </a>
 
-          <a className="button button--secondary" href="#concept">
+          <a className="button" href="#concept">
             コンセプトを見る
           </a>
         </div>
@@ -67,7 +67,7 @@ export default function Hero() {
           {heroImages.map((image, index) => (
             <Image
               key={image.src}
-              className={`visual-card__image hero-image ${
+              className={`hero-image ${
                 index === currentImageIndex ? "hero-image--active" : ""
               }`}
               src={image.src}
