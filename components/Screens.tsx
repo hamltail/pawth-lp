@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 type ScreenImage = {
@@ -38,8 +39,41 @@ const screens: Screen[] = [
 ];
 
 export default function Screens({ onImageClick }: ScreensProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        setIsVisible(true);
+        observer.disconnect();
+      },
+      {
+        threshold: 0.25,
+        rootMargin: "0px 0px -15% 0px",
+      },
+    );
+
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       className="rounded-4xl bg-(--surface-strong) p-12 max-[720px]:p-8"
       id="screens"
     >
@@ -54,10 +88,15 @@ export default function Screens({ onImageClick }: ScreensProps) {
       </div>
 
       <div className="grid grid-cols-3 gap-6 max-[960px]:grid-cols-2 max-[720px]:grid-cols-1">
-        {screens.map((screen) => (
+        {screens.map((screen, index) => (
           <article
             key={screen.src}
-            className="screen-card overflow-hidden rounded-3xl border border-(--border) bg-white shadow-[0_18px_40px_rgba(15,23,42,0.06)]"
+            className={`screen-card overflow-hidden rounded-3xl border border-(--border) bg-white shadow-[0_18px_40px_rgba(15,23,42,0.06)] ${
+              isVisible ? "is-visible" : ""
+            }`}
+            style={{
+              animationDelay: `${index * 140}ms`,
+            }}
           >
             <button
               type="button"

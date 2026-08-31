@@ -1,3 +1,5 @@
+import FadeIn from "./FadeIn";
+
 const technologies = [
   "制約設計",
   "UX改善視点",
@@ -11,7 +13,7 @@ const technologies = [
 
 export default function Tech() {
   return (
-    <section className="fade-in py-16 max-[720px]:py-10">
+    <FadeIn className="py-16 max-[720px]:py-10">
       <div className="mb-8">
         <p className="mb-4 text-[0.78rem] font-bold tracking-[0.12em] text-(--accent) uppercase">
           技術・設計ポイント
@@ -32,6 +34,6 @@ export default function Tech() {
           </div>
         ))}
       </div>
-    </section>
+    </FadeIn>
   );
 }

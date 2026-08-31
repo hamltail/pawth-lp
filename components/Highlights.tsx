@@ -1,3 +1,5 @@
+import FadeIn from "./FadeIn";
+
 const highlights = [
   "単なるCRUDではなく、習慣化と内省を支える設計。",
   "UIだけでなく、使い方の制約まで設計している。",
@@ -6,7 +8,7 @@ const highlights = [
 
 export default function Highlights() {
   return (
-    <section className="fade-in py-16 max-[720px]:py-10">
+    <FadeIn className="py-16 max-[720px]:py-10">
       <div className="mb-8">
         <p className="mb-4 text-[0.78rem] font-bold tracking-[0.12em] text-(--accent) uppercase">
           ポートフォリオとしての見どころ
@@ -27,6 +29,6 @@ export default function Highlights() {
           </p>
         ))}
       </div>
-    </section>
+    </FadeIn>
   );
 }

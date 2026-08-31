@@ -1,3 +1,5 @@
+import FadeIn from "./FadeIn";
+
 type Feature = {
   title: string;
   description: string;
@@ -24,7 +26,7 @@ const features: Feature[] = [
 
 export default function Concept() {
   return (
-    <section className="fade-in py-16 max-[720px]:py-10" id="concept">
+    <FadeIn className="py-16 max-[720px]:py-10" id="concept">
       <div className="mb-8">
         <p className="mb-4 text-[0.78rem] font-bold tracking-[0.12em] text-(--accent) uppercase">
           コンセプト
@@ -51,6 +53,6 @@ export default function Concept() {
           </article>
         ))}
       </div>
-    </section>
+    </FadeIn>
   );
 }
