@@ -63,12 +63,12 @@ export default function Hero() {
       </div>
 
       <div className="relative flex justify-center max-[960px]:order-first">
-        <div className="visual-card visual-card--hero">
+        <div className="relative aspect-4/3 w-full max-w-md overflow-hidden rounded-[28px] border border-[rgba(109,40,217,0.08)] bg-(--surface) shadow-(--shadow)">
           {heroImages.map((image, index) => (
             <Image
               key={image.src}
-              className={`hero-image ${
-                index === currentImageIndex ? "hero-image--active" : ""
+              className={`object-contain opacity-0 transition-opacity duration-3000 ${
+                index === currentImageIndex ? "opacity-100" : ""
               }`}
               src={image.src}
               alt={image.alt}
