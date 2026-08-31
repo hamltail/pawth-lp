@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="page">
+      <main className="mx-auto w-[min(1200px,calc(100%-2.5rem))] py-12 pb-16 max-[960px]:w-[calc(100%-2rem)]">
         <Hero />
         <Screens onImageClick={setSelectedImage} />
         <Concept />

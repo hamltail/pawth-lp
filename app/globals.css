@@ -32,12 +32,6 @@ body {
     sans-serif;
 }
 
-.page {
-  width: min(1200px, calc(100% - 2.5rem));
-  margin: 0 auto;
-  padding: 3rem 0 4rem;
-}
-
 /* Hero buttons */
 
 .button {
@@ -191,11 +185,5 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (max-width: 960px) {
-  .page {
-    width: min(100%, calc(100% - 2rem));
   }
 }
