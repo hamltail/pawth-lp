@@ -6,6 +6,8 @@
   --bg: #ffffff;
   --surface: #f8f5ff;
   --surface-strong: #f0e9ff;
+  --card: #ffffff;
+  --panel: rgba(255, 255, 255, 0.9);
 
   --text: #191b24;
   --muted: #5a5f7d;
@@ -16,6 +18,34 @@
 
   --border: #e9e5f7;
   --shadow: 0 24px 80px rgba(109, 40, 217, 0.08);
+
+  --notice-bg: #fff5f8;
+  --notice-border: #fde0ea;
+  --notice-text: #b83280;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --bg: #111016;
+  --surface: #1a1722;
+  --surface-strong: #211b2e;
+  --card: #1a1722;
+  --panel: rgba(26, 23, 34, 0.9);
+
+  --text: #f4f1f8;
+  --muted: #aaa3b8;
+
+  --primary: #a78bfa;
+  --primary-soft: #33274d;
+  --accent: #f9a8d4;
+
+  --border: #342d42;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+
+  --notice-bg: #2a1822;
+  --notice-border: #533044;
+  --notice-text: #f9a8d4;
 }
 
 html,
@@ -30,6 +60,12 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+}
+
+body {
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
 }
 
 /* Hero buttons */
@@ -50,14 +86,16 @@ body {
   border: 1px solid var(--primary);
   border-radius: 999px;
 
-  background: #ffffff;
+  background: var(--bg);
   color: var(--primary);
 
   font-weight: 700;
 
   transition:
     transform 200ms ease,
-    color 350ms ease;
+    color 350ms ease,
+    background-color 300ms ease,
+    border-color 300ms ease;
 }
 
 .button:hover {

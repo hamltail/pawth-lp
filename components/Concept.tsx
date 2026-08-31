@@ -1,11 +1,6 @@
 import FadeIn from "./FadeIn";
 
-type Feature = {
-  title: string;
-  description: string;
-};
-
-const features: Feature[] = [
+const concepts = [
   {
     title: "1日1投稿まで",
     description: "毎日の記録に制約を設けることで、投稿の価値を高めます。",
@@ -38,17 +33,17 @@ export default function Concept() {
       </div>
 
       <div className="grid grid-cols-2 gap-6 max-[720px]:grid-cols-1">
-        {features.map((feature) => (
+        {concepts.map((concept) => (
           <article
-            key={feature.title}
-            className="overflow-hidden rounded-3xl border border-(--border) bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.06)]"
+            key={concept.title}
+            className="rounded-3xl border border-(--border) bg-(--card) p-8 shadow-[0_18px_40px_rgba(15,23,42,0.04)]"
           >
-            <h3 className="mb-3 text-[1.1rem] font-extrabold text-(--text)">
-              {feature.title}
+            <h3 className="mb-4 text-[1.15rem] font-extrabold">
+              {concept.title}
             </h3>
 
             <p className="m-0 leading-7 text-(--muted)">
-              {feature.description}
+              {concept.description}
             </p>
           </article>
         ))}

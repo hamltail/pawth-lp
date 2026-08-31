@@ -52,14 +52,14 @@ export default function ImageModal({ image, onClose }: ImageModalProps) {
       />
 
       <div
-        className="relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[28px] bg-white shadow-[0_36px_80px_rgba(15,23,42,0.24)]"
+        className="relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[28px] bg-(--card) shadow-[0_36px_80px_rgba(15,23,42,0.24)]"
         role="dialog"
         aria-modal="true"
         aria-labelledby="image-modal-title"
       >
         <button
           type="button"
-          className="absolute top-4 right-4 z-2 grid size-[2.6rem] cursor-pointer place-items-center rounded-full border-0 bg-white/90 text-[1.4rem] leading-none text-(--text) hover:bg-white focus-visible:bg-white"
+          className="absolute top-4 right-4 z-2 grid size-[2.6rem] cursor-pointer place-items-center rounded-full border border-(--border) bg-(--panel) text-[1.4rem] leading-none text-(--text)"
           aria-label="Close image preview"
           onClick={onClose}
         >
@@ -78,7 +78,7 @@ export default function ImageModal({ image, onClose }: ImageModalProps) {
           </div>
 
           <figcaption
-            className="m-0 bg-white px-6 pt-4 pb-6 font-bold text-(--text)"
+            className="m-0 bg-(--card) px-6 pt-4 pb-6 font-bold text-(--text)"
             id="image-modal-title"
           >
             {image.alt}

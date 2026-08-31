@@ -19,14 +19,14 @@ export default function Highlights() {
         </h2>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid gap-5">
         {highlights.map((highlight) => (
-          <p
+          <div
             key={highlight}
-            className="m-0 rounded-[20px] border border-(--border) bg-white px-7 py-6 leading-7 font-semibold text-(--text)"
+            className="rounded-3xl border border-(--border) bg-(--card) p-8 shadow-[0_18px_40px_rgba(15,23,42,0.04)]"
           >
-            {highlight}
-          </p>
+            <p className="m-0 leading-7 font-bold">{highlight}</p>
+          </div>
         ))}
       </div>
     </FadeIn>

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 type ScreenImage = {
   src: string;
@@ -91,7 +91,7 @@ export default function Screens({ onImageClick }: ScreensProps) {
         {screens.map((screen, index) => (
           <article
             key={screen.src}
-            className={`screen-card overflow-hidden rounded-3xl border border-(--border) bg-white shadow-[0_18px_40px_rgba(15,23,42,0.06)] ${
+            className={`screen-card overflow-hidden rounded-3xl border border-(--border) bg-(--card) shadow-[0_18px_40px_rgba(15,23,42,0.06)] ${
               isVisible ? "is-visible" : ""
             }`}
             style={{

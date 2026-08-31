@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import ThemeProvider from "../components/ThemeProvider";
+import ThemeSwitcher from "../components/ThemeSwitcher";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,8 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <body>{children}</body>
+    <html lang="ja" suppressHydrationWarning>
+      <body>
+        <ThemeProvider>
+          {children}
+          <ThemeSwitcher />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
