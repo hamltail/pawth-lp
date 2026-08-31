@@ -28,23 +28,25 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero">
-      <div className="hero__content">
-        <p className="hero__eyebrow">Portfolio Landing Page</p>
+    <section className="grid grid-cols-[1.2fr_0.8fr] items-center gap-8 py-16 pb-20 max-[960px]:grid-cols-1 max-[720px]:gap-6 max-[720px]:pt-10">
+      <div>
+        <p className="mb-4 text-[0.78rem] font-bold tracking-[0.12em] text-(--accent) uppercase">
+          About Pawth
+        </p>
 
-        <h1 className="hero__title">
-          Pawth <span className="hero__emoji">🐾</span>
+        <h1 className="m-0 text-[clamp(2.8rem,4vw,4.5rem)] leading-none font-black">
+          Pawth <span className="inline-block">🐾</span>
         </h1>
 
-        <p className="hero__subtitle">
+        <p className="mt-6 mb-4 max-w-3xl text-[1.3rem] leading-normal max-[720px]:text-[1.15rem]">
           日々の足あとを描く、1日1投稿の小さな日記アプリ
         </p>
 
-        <p className="hero__description">
+        <p className="mb-8 max-w-2xl leading-7 text-(--muted)">
           Pawthは、日々の歩みを可視化し、その日の記録にコミットするための日記アプリです。
         </p>
 
-        <div className="hero__actions">
+        <div className="flex flex-wrap gap-4 max-[720px]:flex-col max-[720px]:items-stretch">
           <a
             className="button button--primary"
             href="https://github.com/hamltail/Pawth"
@@ -60,7 +62,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hero__visual">
+      <div className="relative flex justify-center max-[960px]:order-first">
         <div className="visual-card visual-card--hero">
           {heroImages.map((image, index) => (
             <Image
