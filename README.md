@@ -13,12 +13,12 @@ Pawth の紹介・ポートフォリオ用に制作したランディングペ�
 - Next.js
 - React
 - TypeScript
-- CSS (BEMを参考にしたクラス命名)
+- Tailwind CSS
 - Vercel
 
 ## Technical Decisions
 
-当初は HTML・CSS・JavaScript による静的サイトとして制作していましたが、2026年7月に Next.js へ移行しました。
+当初は HTML・CSS・JavaScript による静的サイトとして制作し、その後 Next.js へ移行しました。
 
 セクションごとにコンポーネントを分離し、保守性と再利用性を意識した構成としています。
 
