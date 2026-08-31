@@ -47,15 +47,17 @@ body {
 
   overflow: hidden;
 
-  border: 1px solid transparent;
+  border: 1px solid var(--primary);
   border-radius: 999px;
+
+  background: #ffffff;
+  color: var(--primary);
 
   font-weight: 700;
 
   transition:
     transform 200ms ease,
-    color 350ms ease,
-    background-color 350ms ease;
+    color 350ms ease;
 }
 
 .button:hover {
@@ -69,52 +71,21 @@ body {
   inset: 0;
   z-index: -1;
 
+  background: var(--primary);
+
   transform: scaleX(0);
+  transform-origin: left;
 
   transition: transform 350ms ease;
 }
 
-.button--primary {
-  border-color: var(--primary);
-  background: var(--primary);
-  color: #ffffff;
-
-  box-shadow: 0 14px 32px rgba(109, 40, 217, 0.14);
-}
-
-.button--primary::before {
-  background: #ffffff;
-  transform-origin: left;
-}
-
-.button--primary:hover::before,
-.button--primary:focus-visible::before {
+.button:hover::before,
+.button:focus-visible::before {
   transform: scaleX(1);
 }
 
-.button--primary:hover,
-.button--primary:focus-visible {
-  color: var(--primary);
-}
-
-.button--secondary {
-  border-color: var(--primary);
-  background: #ffffff;
-  color: var(--primary);
-}
-
-.button--secondary::before {
-  background: var(--primary);
-  transform-origin: left;
-}
-
-.button--secondary:hover::before,
-.button--secondary:focus-visible::before {
-  transform: scaleX(1);
-}
-
-.button--secondary:hover,
-.button--secondary:focus-visible {
+.button:hover,
+.button:focus-visible {
   color: #ffffff;
 }
 
