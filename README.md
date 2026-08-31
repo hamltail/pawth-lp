@@ -2,7 +2,8 @@
 
 Pawth の紹介・ポートフォリオ用に制作したランディングページです。
 
-アプリのコンセプトや主要画面、設計思想をわかりやすく伝えることを目的として制作しました。
+アプリのコンセプトや主要画面、設計思想を伝えるとともに、
+Web開発における技術検証にも取り組んでいます。
 
 ## Live Demo
 
@@ -10,12 +11,12 @@ Pawth の紹介・ポートフォリオ用に制作したランディングペ�
 
 ## Tech Stack
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Docker
-- Vercel
+| Category       | Technologies                                             |
+| -------------- | -------------------------------------------------------- |
+| Frontend       | Next.js, React, TypeScript, Tailwind CSS                 |
+| Testing        | Vitest, Playwright, Stryker, axe-core, Lighthouse CI, k6 |
+| Security       | OWASP ZAP, CodeQL                                        |
+| Infrastructure | Docker, Vercel, GitHub Actions                           |
 
 ## Technical Decisions
 
