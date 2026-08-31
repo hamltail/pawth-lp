@@ -51,3 +51,11 @@ jobs:
             playwright-report/
             test-results/
           retention-days: 14
+
+      - name: Upload Lighthouse report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: .lighthouseci/
+          retention-days: 14
