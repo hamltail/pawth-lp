@@ -20,8 +20,7 @@ type ModalImage = {
 };
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] =
-    useState<ModalImage | null>(null);
+  const [selectedImage, setSelectedImage] = useState<ModalImage | null>(null);
 
   const closeModal = () => {
     setSelectedImage(null);
@@ -41,10 +40,7 @@ export default function Home() {
         <Notice />
       </main>
 
-      <ImageModal
-        image={selectedImage}
-        onClose={closeModal}
-      />
+      <ImageModal image={selectedImage} onClose={closeModal} />
 
       <Footer />
       <BackToTop />

@@ -4,9 +4,7 @@ export default function Concept() {
       <div className="section__header">
         <p className="section__eyebrow">コンセプト</p>
 
-        <h2 className="section__title">
-          目的は、今日の自分にコミットすること
-        </h2>
+        <h2 className="section__title">目的は、今日の自分にコミットすること</h2>
       </div>
 
       <div className="feature-grid">

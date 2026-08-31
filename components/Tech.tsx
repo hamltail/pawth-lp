@@ -16,9 +16,7 @@ export default function Tech() {
         </div>
         <div className="tech-card">自動テスト（Playwright）</div>
         <div className="tech-card">開発環境の再現性（Docker）</div>
-        <div className="tech-card">
-          本番運用を見据えた設計（AWS）
-        </div>
+        <div className="tech-card">本番運用を見据えた設計（AWS）</div>
       </div>
     </section>
   );

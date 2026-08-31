@@ -4,8 +4,7 @@ import { useEffect } from "react";
 
 export default function FadeInObserver() {
   useEffect(() => {
-    const fadeInElements =
-      document.querySelectorAll<HTMLElement>(".fade-in");
+    const fadeInElements = document.querySelectorAll<HTMLElement>(".fade-in");
 
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -30,8 +29,7 @@ export default function FadeInObserver() {
       observer.observe(element);
     });
 
-    const introSection =
-      document.querySelector<HTMLElement>(".section--intro");
+    const introSection = document.querySelector<HTMLElement>(".section--intro");
 
     if (!introSection) {
       return () => {

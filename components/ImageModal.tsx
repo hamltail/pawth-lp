@@ -12,10 +12,7 @@ type ImageModalProps = {
   onClose: () => void;
 };
 
-export default function ImageModal({
-  image,
-  onClose,
-}: ImageModalProps) {
+export default function ImageModal({ image, onClose }: ImageModalProps) {
   useEffect(() => {
     if (!image) {
       document.body.style.overflow = "";
@@ -44,11 +41,7 @@ export default function ImageModal({
       id="image-modal"
       aria-hidden={!image}
     >
-      <div
-        className="modal__overlay"
-        data-modal-close
-        onClick={onClose}
-      />
+      <div className="modal__overlay" data-modal-close onClick={onClose} />
 
       <div
         className="modal__content"
@@ -67,17 +60,10 @@ export default function ImageModal({
 
         <figure className="modal__figure">
           {image && (
-            <img
-              className="modal__image"
-              src={image.src}
-              alt={image.alt}
-            />
+            <img className="modal__image" src={image.src} alt={image.alt} />
           )}
 
-          <figcaption
-            className="modal__caption"
-            id="image-modal-title"
-          >
+          <figcaption className="modal__caption" id="image-modal-title">
             {image?.alt ?? ""}
           </figcaption>
         </figure>
