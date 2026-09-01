@@ -198,6 +198,21 @@ test.describe("English locale", () => {
       }),
     ).toBeEnabled();
 
+    // Language switcher
+    const footer = page.locator("footer");
+
+    await expect(
+      footer.getByRole("button", {
+        name: "English",
+      }),
+    ).toHaveAttribute("aria-pressed", "true");
+
+    await expect(
+      footer.getByRole("button", {
+        name: "日本語",
+      }),
+    ).toHaveAttribute("aria-pressed", "false");
+
     // Back to top
     await page.evaluate(() => {
       window.scrollTo(0, 1000);
@@ -211,9 +226,113 @@ test.describe("English locale", () => {
 
     // Footer
     await expect(
-      page.locator("footer").getByText(`© ${new Date().getFullYear()} Pawth`, {
+      footer.getByText(`© ${new Date().getFullYear()} Pawth`, {
         exact: true,
       }),
     ).toBeVisible();
+  });
+
+  test("Footerから日本語へ切り替え、リロード後も選択を保持する", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    const footer = page.locator("footer");
+
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+
+    await footer
+      .getByRole("button", {
+        name: "日本語",
+      })
+      .click();
+
+    await expect(page.locator("html")).toHaveAttribute("lang", "ja");
+
+    await expect(
+      page.getByText("日々の足あとを描く、1日1投稿の小さな日記アプリ", {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    await expect(
+      footer.getByRole("button", {
+        name: "日本語",
+      }),
+    ).toHaveAttribute("aria-pressed", "true");
+
+    await expect(
+      footer.getByRole("button", {
+        name: "English",
+      }),
+    ).toHaveAttribute("aria-pressed", "false");
+
+    await page.reload();
+
+    await expect(page.locator("html")).toHaveAttribute("lang", "ja");
+
+    await expect(
+      page.getByRole("heading", {
+        level: 2,
+        name: "Pawth の3つの画面",
+      }),
+    ).toBeVisible();
+
+    await expect(
+      page.locator("footer").getByRole("button", {
+        name: "日本語",
+      }),
+    ).toHaveAttribute("aria-pressed", "true");
+  });
+
+  test("日本語から英語へ戻し、リロード後も選択を保持する", async ({ page }) => {
+    await page.goto("/");
+
+    const footer = page.locator("footer");
+
+    await footer
+      .getByRole("button", {
+        name: "日本語",
+      })
+      .click();
+
+    await expect(page.locator("html")).toHaveAttribute("lang", "ja");
+
+    await footer
+      .getByRole("button", {
+        name: "English",
+      })
+      .click();
+
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+
+    await expect(
+      page.getByText("A small journaling app for recording one entry a day", {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    await expect(
+      footer.getByRole("button", {
+        name: "English",
+      }),
+    ).toHaveAttribute("aria-pressed", "true");
+
+    await page.reload();
+
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+
+    await expect(
+      page.getByRole("heading", {
+        level: 2,
+        name: "Three Screens in Pawth",
+      }),
+    ).toBeVisible();
+
+    await expect(
+      page.locator("footer").getByRole("button", {
+        name: "English",
+      }),
+    ).toHaveAttribute("aria-pressed", "true");
   });
 });
