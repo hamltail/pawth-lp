@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 
 type ModalImage = {
@@ -14,6 +15,8 @@ type ImageModalProps = {
 };
 
 export default function ImageModal({ image, onClose }: ImageModalProps) {
+  const t = useTranslations("ImageModal");
+
   useEffect(() => {
     if (!image) {
       document.body.style.overflow = "";
@@ -60,7 +63,7 @@ export default function ImageModal({ image, onClose }: ImageModalProps) {
         <button
           type="button"
           className="absolute top-4 right-4 z-2 grid size-[2.6rem] cursor-pointer place-items-center rounded-full border border-(--border) bg-(--panel) text-[1.4rem] leading-none text-(--text)"
-          aria-label="Close image preview"
+          aria-label={t("close")}
           onClick={onClose}
         >
           ×

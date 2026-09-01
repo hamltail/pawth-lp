@@ -1,22 +1,26 @@
+import { useTranslations } from "next-intl";
+
 import FadeIn from "./FadeIn";
 
 const excludedFeatures = [
-  "SNS化しない",
-  "タイムラインなし",
-  "フォロー/フォロワーなし",
-  "内省に最適化",
-];
+  "noSocial",
+  "noTimeline",
+  "noFollow",
+  "reflection",
+] as const;
 
 export default function Negative() {
+  const t = useTranslations("Negative");
+
   return (
     <FadeIn className="py-16 max-[720px]:py-10">
       <div className="mb-8">
         <p className="mb-4 text-[0.78rem] font-bold tracking-[0.12em] text-(--accent) uppercase">
-          非採用機能
+          {t("label")}
         </p>
 
         <h2 className="m-0 text-[clamp(2rem,3vw,3rem)] leading-[1.1] font-extrabold">
-          Pawth の設計思想
+          {t("title")}
         </h2>
       </div>
 
@@ -26,7 +30,7 @@ export default function Negative() {
             key={feature}
             className="rounded-[20px] bg-(--surface) px-6 py-5 font-bold text-(--text)"
           >
-            {feature}
+            {t(feature)}
           </li>
         ))}
       </ul>

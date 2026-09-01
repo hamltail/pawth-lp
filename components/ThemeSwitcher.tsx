@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useSyncExternalStore } from "react";
 
 import { useTheme } from "./ThemeProvider";
@@ -7,7 +8,7 @@ import { useTheme } from "./ThemeProvider";
 const themes = [
   {
     value: "light",
-    label: "ライトテーマ",
+    labelKey: "light",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -32,7 +33,7 @@ const themes = [
   },
   {
     value: "dark",
-    label: "ダークテーマ",
+    labelKey: "dark",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -49,7 +50,7 @@ const themes = [
   },
   {
     value: "system",
-    label: "システムテーマ",
+    labelKey: "system",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -71,6 +72,7 @@ const themes = [
 const subscribe = () => () => {};
 
 export default function ThemeSwitcher() {
+  const t = useTranslations("ThemeSwitcher");
   const { theme, setTheme } = useTheme();
 
   const mounted = useSyncExternalStore(
@@ -83,6 +85,7 @@ export default function ThemeSwitcher() {
     <div className="fixed top-5 right-5 z-9998 flex gap-1 rounded-full border border-(--border) bg-(--panel) p-1 shadow-(--shadow) backdrop-blur-md">
       {themes.map((item) => {
         const isActive = mounted && theme === item.value;
+        const label = t(item.labelKey);
 
         return (
           <button
@@ -93,9 +96,9 @@ export default function ThemeSwitcher() {
                 ? "bg-(--primary) text-white"
                 : "text-(--muted) hover:bg-(--surface)"
             }`}
-            aria-label={item.label}
+            aria-label={label}
             aria-pressed={isActive}
-            title={item.label}
+            title={label}
             disabled={!mounted}
             onClick={() => setTheme(item.value)}
           >
