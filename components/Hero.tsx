@@ -56,7 +56,23 @@ export default function Hero() {
       </div>
 
       <div className="relative flex justify-center max-[960px]:order-first">
-        <div className="relative aspect-4/3 w-full max-w-md overflow-hidden rounded-[28px] border border-[rgba(109,40,217,0.08)] bg-(--surface) shadow-(--shadow)">
+        <div
+          className="
+            relative aspect-4/3 w-full max-w-md
+            origin-bottom cursor-pointer overflow-hidden
+            rounded-[28px]
+            border border-[rgba(109,40,217,0.08)]
+            bg-(--surface)
+            shadow-(--shadow)
+            transition-transform
+            duration-500
+            ease-[cubic-bezier(0.22,2.2,0.36,1)]
+            hover:-translate-y-1
+            active:-translate-y-0.5
+            active:scale-x-[1.10]
+            active:scale-y-[0.90]
+          "
+        >
           {heroImages.map((src, index) => (
             <Image
               key={src}
