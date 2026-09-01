@@ -1,0 +1,101 @@
+{
+  "Metadata": {
+    "title": "Pawth | A Small Daily Journaling App",
+    "description": "A journaling app that helps you visualize your daily journey and commit to today's reflection."
+  },
+  "Hero": {
+    "label": "About Pawth",
+    "title": "Pawth",
+    "imageAlt": "Pawth app image",
+    "lead": "A small journaling app for recording one entry a day",
+    "description": "Pawth is a journaling app designed to visualize your daily journey and help you commit to today's reflection.",
+    "github": "View on GitHub",
+    "concept": "View Concept"
+  },
+  "Screens": {
+    "label": "App Screens",
+    "title": "Three Screens in Pawth",
+    "calendar": {
+      "alt": "Calendar screen",
+      "title": "Calendar",
+      "description": "See your daily journey at a glance and visualize your posting rhythm.",
+      "button": "Enlarge calendar screen"
+    },
+    "list": {
+      "alt": "Journal list screen",
+      "title": "Journal List",
+      "description": "A list view designed to make past entries easy to revisit and reflect on.",
+      "button": "Enlarge journal list screen"
+    },
+    "modal": {
+      "alt": "Journal entry modal screen",
+      "title": "Journal Entry Modal",
+      "description": "A simple one-entry-per-day experience that makes daily journaling easy.",
+      "button": "Enlarge journal entry modal screen"
+    }
+  },
+  "Concept": {
+    "label": "Concept",
+    "title": "The Goal Is to Commit to Who You Are Today",
+    "onePost": {
+      "title": "One Entry per Day",
+      "description": "Limiting daily entries gives each record more meaning."
+    },
+    "noDeleteToday": {
+      "title": "No Deleting on the Same Day",
+      "description": "Today's entry remains as a commitment to yourself for that day."
+    },
+    "editLimit": {
+      "title": "Up to Three Edits",
+      "description": "Encourages reflection while preventing endless revisions."
+    },
+    "deleteLater": {
+      "title": "Delete from the Next Day Onward",
+      "description": "Leaves room to reorganize entries after giving yourself time to reflect."
+    }
+  },
+  "Negative": {
+    "label": "Features We Chose Not to Add",
+    "title": "Pawth's Design Philosophy",
+    "noSocial": "Not a social network",
+    "noTimeline": "No timeline",
+    "noFollow": "No followers or following",
+    "reflection": "Optimized for self-reflection"
+  },
+  "Tech": {
+    "label": "Technical & Design Focus",
+    "title": "What We Focused on in Development",
+    "constraint": "Constraint-driven design",
+    "ux": "UX improvement mindset",
+    "ui": "UI designed for consistency",
+    "accessibility": "Accessibility",
+    "tailwind": "Utility-first styling (Tailwind CSS)",
+    "playwright": "Automated testing (Playwright)",
+    "docker": "Reproducible development environment (Docker)",
+    "aws": "Production-oriented architecture (AWS)"
+  },
+  "Highlights": {
+    "label": "Portfolio Highlights",
+    "title": "Design Beyond Basic CRUD",
+    "habit": "Designed not just for CRUD, but to support habit building and reflection.",
+    "constraint": "The experience is shaped not only by the UI, but also by intentional usage constraints.",
+    "quality": "A personal project developed with QA and UX perspectives in mind."
+  },
+  "Notice": {
+    "message": "The production environment is currently offline."
+  },
+  "Footer": {
+    "copyright": "© {year} Pawth"
+  },
+  "ThemeSwitcher": {
+    "light": "Light theme",
+    "dark": "Dark theme",
+    "system": "System theme"
+  },
+  "BackToTop": {
+    "label": "Back to top"
+  },
+  "ImageModal": {
+    "close": "Close image preview"
+  }
+}

@@ -1,26 +1,30 @@
+import { useTranslations } from "next-intl";
+
 import FadeIn from "./FadeIn";
 
 const technologies = [
-  "制約設計",
-  "UX改善視点",
-  "継続しやすいUI",
-  "アクセシビリティ配慮",
-  "ユーティリティファースト（Tailwind CSS）",
-  "自動テスト（Playwright）",
-  "開発環境の再現性（Docker）",
-  "本番運用を見据えた設計（AWS）",
-];
+  "constraint",
+  "ux",
+  "ui",
+  "accessibility",
+  "tailwind",
+  "playwright",
+  "docker",
+  "aws",
+] as const;
 
 export default function Tech() {
+  const t = useTranslations("Tech");
+
   return (
     <FadeIn className="py-16 max-[720px]:py-10">
       <div className="mb-8">
         <p className="mb-4 text-[0.78rem] font-bold tracking-[0.12em] text-(--accent) uppercase">
-          技術・設計ポイント
+          {t("label")}
         </p>
 
         <h2 className="m-0 text-[clamp(2rem,3vw,3rem)] leading-[1.1] font-extrabold">
-          開発で重視したこと
+          {t("title")}
         </h2>
       </div>
 
@@ -30,7 +34,7 @@ export default function Tech() {
             key={technology}
             className="rounded-[20px] bg-(--surface) p-6 text-center font-bold text-(--text)"
           >
-            {technology}
+            {t(technology)}
           </div>
         ))}
       </div>

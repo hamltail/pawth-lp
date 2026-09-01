@@ -1,0 +1,101 @@
+{
+  "Metadata": {
+    "title": "Pawth | 日々の足あとを描く日記アプリ",
+    "description": "日々の歩みを可視化し、その日の記録にコミットするための日記アプリです。"
+  },
+  "Hero": {
+    "label": "About Pawth",
+    "title": "Pawth",
+    "imageAlt": "Pawth イメージ画像",
+    "lead": "日々の足あとを描く、1日1投稿の小さな日記アプリ",
+    "description": "Pawthは、日々の歩みを可視化し、その日の記録にコミットするための日記アプリです。",
+    "github": "GitHubを見る",
+    "concept": "コンセプトを見る"
+  },
+  "Screens": {
+    "label": "アプリ画面紹介",
+    "title": "Pawth の3つの画面",
+    "calendar": {
+      "alt": "カレンダー画面",
+      "title": "カレンダー画面",
+      "description": "日々の足あとを一目で確認し、投稿のリズムを可視化します。",
+      "button": "カレンダー画面を拡大表示"
+    },
+    "list": {
+      "alt": "日記一覧画面",
+      "title": "日記一覧画面",
+      "description": "過去の投稿を振り返りやすく、内省のための一覧表示です。",
+      "button": "日記一覧画面を拡大表示"
+    },
+    "modal": {
+      "alt": "日記投稿モーダル画面",
+      "title": "日記投稿モーダル",
+      "description": "1日1投稿のシンプルな入力体験で、気軽に記録できます。",
+      "button": "日記投稿モーダル画面を拡大表示"
+    }
+  },
+  "Concept": {
+    "label": "コンセプト",
+    "title": "目的は、今日の自分にコミットすること",
+    "onePost": {
+      "title": "1日1投稿まで",
+      "description": "毎日の記録に制約を設けることで、投稿の価値を高めます。"
+    },
+    "noDeleteToday": {
+      "title": "当日内は削除不可",
+      "description": "今日の記録はその日の自分への約束として残します。"
+    },
+    "editLimit": {
+      "title": "編集は最大3回まで",
+      "description": "振り返りを促しつつ、過度な修正を防ぎます。"
+    },
+    "deleteLater": {
+      "title": "翌日以降は削除可",
+      "description": "時間を置いた判断で整理できる柔軟性を残します。"
+    }
+  },
+  "Negative": {
+    "label": "非採用機能",
+    "title": "Pawth の設計思想",
+    "noSocial": "SNS化しない",
+    "noTimeline": "タイムラインなし",
+    "noFollow": "フォロー/フォロワーなし",
+    "reflection": "内省に最適化"
+  },
+  "Tech": {
+    "label": "技術・設計ポイント",
+    "title": "開発で重視したこと",
+    "constraint": "制約設計",
+    "ux": "UX改善視点",
+    "ui": "継続しやすいUI",
+    "accessibility": "アクセシビリティ配慮",
+    "tailwind": "ユーティリティファースト（Tailwind CSS）",
+    "playwright": "自動テスト（Playwright）",
+    "docker": "開発環境の再現性（Docker）",
+    "aws": "本番運用を見据えた設計（AWS）"
+  },
+  "Highlights": {
+    "label": "ポートフォリオとしての見どころ",
+    "title": "単なるCRUDを超えた設計",
+    "habit": "単なるCRUDではなく、習慣化と内省を支える設計。",
+    "constraint": "UIだけでなく、使い方の制約まで設計している。",
+    "quality": "QA・UX視点を意識した個人開発。"
+  },
+  "Notice": {
+    "message": "現在、本番環境の公開は停止しています。"
+  },
+  "Footer": {
+    "copyright": "© {year} Pawth"
+  },
+  "ThemeSwitcher": {
+    "light": "ライトテーマ",
+    "dark": "ダークテーマ",
+    "system": "システムテーマ"
+  },
+  "BackToTop": {
+    "label": "ページ上部へ戻る"
+  },
+  "ImageModal": {
+    "close": "Close image preview"
+  }
+}

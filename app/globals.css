@@ -22,6 +22,9 @@
   --notice-bg: #fff5f8;
   --notice-border: #fde0ea;
   --notice-text: #b83280;
+
+  --focus: rgba(255, 63, 212, 0.55);
+  --focus-glow: rgba(255, 63, 212, 0.22);
 }
 
 .dark {
@@ -46,6 +49,9 @@
   --notice-bg: #2a1822;
   --notice-border: #533044;
   --notice-text: #f9a8d4;
+
+  --focus: rgba(255, 92, 219, 0.65);
+  --focus-glow: rgba(255, 92, 219, 0.28);
 }
 
 html,
@@ -66,6 +72,14 @@ body {
   transition:
     background-color 300ms ease,
     color 300ms ease;
+}
+
+/* Keyboard focus */
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+  box-shadow: 0 0 12px var(--focus-glow);
 }
 
 /* Hero buttons */
@@ -125,6 +139,54 @@ body {
 .button:hover,
 .button:focus-visible {
   color: #ffffff;
+}
+
+/* Image modal */
+
+.modal-backdrop {
+  animation: modal-backdrop-in 280ms ease-out both;
+}
+
+.modal-panel {
+  transform-origin: center;
+  animation: modal-panel-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.modal-close-button {
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.modal-close-button:hover {
+  transform: rotate(8deg) scale(1.08);
+}
+
+.modal-close-button:active {
+  transform: rotate(-4deg) scale(0.94);
+}
+
+@keyframes modal-backdrop-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-panel-in {
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Screens card entrance animation */

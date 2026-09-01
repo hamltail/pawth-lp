@@ -1,32 +1,26 @@
-# dependencies
-node_modules/
+# Dependencies
+/node_modules
 
-# Next.js build files
-.next/
-out/
+# Next.js
+/.next/
+/out/
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# Production
+/build
 
-# environment variables
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment variables
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# OS
-.DS_Store
-
-# editor
-.vscode/
-
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
+# Vercel
+/.vercel
 
 # Playwright
 /test-results/
@@ -38,5 +32,23 @@ next-env.d.ts
 # Lighthouse CI
 /.lighthouseci/
 
+# Stryker
+/.stryker-tmp/
+
 # Reports
 /reports/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor
+/.vscode/
+
+# OS
+.DS_Store
+
+# Misc
+*.pem

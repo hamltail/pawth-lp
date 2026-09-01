@@ -16,8 +16,20 @@ export default defineConfig({
 
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      name: "chromium-ja",
+      testIgnore: /i18n\.spec\.ts/,
+      use: {
+        ...devices["Desktop Chrome"],
+        locale: "ja-JP",
+      },
+    },
+    {
+      name: "chromium-en",
+      testMatch: /i18n\.spec\.ts/,
+      use: {
+        ...devices["Desktop Chrome"],
+        locale: "en-US",
+      },
     },
   ],
 

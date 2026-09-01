@@ -13,7 +13,7 @@ Web開発における技術検証にも取り組んでいます。
 
 | Category       | Technologies                                             |
 | -------------- | -------------------------------------------------------- |
-| Frontend       | Next.js, React, TypeScript, Tailwind CSS                 |
+| Frontend       | Next.js, React, TypeScript, Tailwind CSS, next-intl      |
 | Testing        | Vitest, Playwright, Stryker, axe-core, Lighthouse CI, k6 |
 | Security       | OWASP ZAP, CodeQL                                        |
 | Infrastructure | Docker, Vercel, GitHub Actions                           |
