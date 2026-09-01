@@ -45,24 +45,24 @@ export default function ImageModal({ image, onClose }: ImageModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-9999 flex items-center justify-center bg-slate-950/70 p-8 backdrop-blur-[6px]"
+      className="modal-overlay fixed inset-0 z-9999 flex items-center justify-center p-8 backdrop-blur-[6px]"
       id="image-modal"
     >
       <div
-        className="absolute inset-0 bg-slate-950/60"
+        className="modal-backdrop absolute inset-0 bg-slate-950/70"
         aria-hidden="true"
         onClick={onClose}
       />
 
       <div
-        className="relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[28px] bg-(--card) shadow-[0_36px_80px_rgba(15,23,42,0.24)]"
+        className="modal-panel relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[28px] bg-(--card) shadow-[0_36px_80px_rgba(15,23,42,0.24)]"
         role="dialog"
         aria-modal="true"
         aria-labelledby="image-modal-title"
       >
         <button
           type="button"
-          className="absolute top-4 right-4 z-2 grid size-[2.6rem] cursor-pointer place-items-center rounded-full border border-(--border) bg-(--panel) text-[1.4rem] leading-none text-(--text)"
+          className="modal-close-button absolute top-4 right-4 z-2 grid size-[2.6rem] cursor-pointer place-items-center rounded-full border border-(--border) bg-(--panel) text-[1.4rem] leading-none text-(--text)"
           aria-label={t("close")}
           onClick={onClose}
         >
