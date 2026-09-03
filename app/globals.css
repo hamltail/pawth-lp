@@ -68,12 +68,6 @@ body {
     sans-serif;
 }
 
-body {
-  transition:
-    background-color 300ms ease,
-    color 300ms ease;
-}
-
 /* Keyboard focus */
 
 :where(a, button, input, textarea, select, [tabindex]):focus-visible {
