@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Noto_Sans_JP, Roboto } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 
@@ -8,8 +8,14 @@ import ThemeSwitcher from "../components/ThemeSwitcher";
 
 import "./globals.css";
 
-const inter = Inter({
+const roboto = Roboto({
   subsets: ["latin"],
+  variable: "--font-roboto",
+});
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  variable: "--font-noto-sans-jp",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -33,7 +39,11 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning className={inter.className}>
+    <html
+      lang={locale}
+      suppressHydrationWarning
+      className={`${roboto.variable} ${notoSansJP.variable}`}
+    >
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
