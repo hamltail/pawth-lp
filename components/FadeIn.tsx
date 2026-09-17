@@ -5,11 +5,10 @@ import { type ReactNode, useEffect, useRef, useState } from "react";
 type FadeInProps = {
   children: ReactNode | ((isVisible: boolean) => ReactNode);
   className?: string;
-  id?: string;
 };
 
-export default function FadeIn({ children, className = "", id }: FadeInProps) {
-  const elementRef = useRef<HTMLElement>(null);
+export default function FadeIn({ children, className = "" }: FadeInProps) {
+  const elementRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -42,14 +41,13 @@ export default function FadeIn({ children, className = "", id }: FadeInProps) {
   }, []);
 
   return (
-    <section
+    <div
       ref={elementRef}
-      id={id}
       className={`${className} transition-[opacity,transform] duration-600 ease-[cubic-bezier(0.2,0.9,0.2,1)] ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
       }`}
     >
       {typeof children === "function" ? children(isVisible) : children}
-    </section>
+    </div>
   );
 }
