@@ -53,7 +53,8 @@
     "label": "Theme Colors",
     "title": "Make It Feel Like Yours",
     "description": "Choose between light, dark, and system themes to match your environment and preference.",
-    "imageAlt": "Pawth calendar displayed in dark theme"
+    "imageAlt": "Pawth calendar displayed in dark theme",
+    "imageButton": "Enlarge dark theme screen"
   },
   "Notice": {
     "message": "The production environment is currently offline."

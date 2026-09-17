@@ -53,7 +53,8 @@
     "label": "Theme Colors",
     "title": "見た目も、自分らしく",
     "description": "ライト・ダーク・システムテーマに対応。環境や好みに合わせて、Pawthの見た目を切り替えることができます。",
-    "imageAlt": "ダークテーマで表示されたPawthのカレンダー画面"
+    "imageAlt": "ダークテーマで表示されたPawthのカレンダー画面",
+    "imageButton": "ダークテーマの画面を拡大表示"
   },
   "Notice": {
     "message": "現在、本番環境の公開は停止しています。"

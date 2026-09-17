@@ -4,8 +4,19 @@ import { useTranslations } from "next-intl";
 import Container from "./Container";
 import FadeIn from "./FadeIn";
 
-export default function ThemeColors() {
+type ThemeImage = {
+  src: string;
+  alt: string;
+};
+
+type ThemeColorsProps = {
+  onImageClick: (image: ThemeImage) => void;
+};
+
+export default function ThemeColors({ onImageClick }: ThemeColorsProps) {
   const t = useTranslations("ThemeColors");
+  const imageSrc = "/images/pawth-dark.webp";
+  const imageAlt = t("imageAlt");
 
   return (
     <section className="py-20 md:py-28">
@@ -40,17 +51,27 @@ export default function ThemeColors() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--shadow)">
+            <button
+              type="button"
+              className="group w-full overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--shadow)"
+              onClick={() =>
+                onImageClick({
+                  src: imageSrc,
+                  alt: imageAlt,
+                })
+              }
+              aria-label={t("imageButton")}
+            >
               <Image
-                src="/images/pawth-dark.webp"
-                alt={t("imageAlt")}
+                src={imageSrc}
+                alt={imageAlt}
                 width={1600}
                 height={900}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 draggable={false}
-                className="h-auto w-full select-none"
+                className="h-auto w-full select-none transition-transform duration-500 group-hover:scale-[1.01]"
               />
-            </div>
+            </button>
           </div>
         </FadeIn>
       </Container>
