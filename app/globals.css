@@ -68,65 +68,6 @@ body {
   box-shadow: 0 0 12px var(--focus-glow);
 }
 
-/* Hero buttons */
-
-.button {
-  position: relative;
-  isolation: isolate;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 3rem;
-  padding: 0 1.4rem;
-
-  overflow: hidden;
-
-  border: 1px solid var(--primary);
-  border-radius: 999px;
-
-  background: var(--bg);
-  color: var(--primary);
-
-  font-weight: 700;
-
-  transition:
-    transform 200ms ease,
-    color 350ms ease,
-    background-color 300ms ease,
-    border-color 300ms ease;
-}
-
-.button:hover {
-  transform: translateY(-1px);
-}
-
-.button::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-
-  background: var(--primary);
-
-  transform: scaleX(0);
-  transform-origin: left;
-
-  transition: transform 350ms ease;
-}
-
-.button:hover::before,
-.button:focus-visible::before {
-  transform: scaleX(1);
-}
-
-.button:hover,
-.button:focus-visible {
-  color: #ffffff;
-}
-
 /* Image modal */
 
 .modal-backdrop {

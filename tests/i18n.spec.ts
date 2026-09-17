@@ -17,14 +17,8 @@ test.describe("English locale", () => {
     ).toBeVisible();
 
     await expect(
-      page.getByText("A small journaling app for recording one entry a day", {
-        exact: true,
-      }),
-    ).toBeVisible();
-
-    await expect(
       page.getByText(
-        "Pawth is a journaling app designed to visualize your daily journey and help you commit to today's reflection.",
+        "A daily journal for leaving one small footprint each day",
         {
           exact: true,
         },
@@ -32,16 +26,13 @@ test.describe("English locale", () => {
     ).toBeVisible();
 
     await expect(
-      page.getByRole("link", {
-        name: "View on GitHub",
-      }),
-    ).toHaveAttribute("href", "https://github.com/hamltail/Pawth");
-
-    await expect(
-      page.getByRole("link", {
-        name: "View Concept",
-      }),
-    ).toHaveAttribute("href", "#concept");
+      page.getByText(
+        "Record your day, then look back on your journey through the calendar and timeline.",
+        {
+          exact: true,
+        },
+      ),
+    ).toBeVisible();
 
     // Screens
     const screens = page.locator("#screens");
@@ -49,126 +40,47 @@ test.describe("English locale", () => {
     await expect(
       screens.getByRole("heading", {
         level: 2,
-        name: "Three Screens in Pawth",
+        name: "What You Can Do with Pawth",
       }),
     ).toBeVisible();
 
-    await expect(
-      screens.getByRole("heading", {
-        level: 3,
-        name: "Calendar",
-      }),
-    ).toBeVisible();
+    for (const title of ["Calendar", "Timeline", "Customize"]) {
+      await expect(
+        screens.getByRole("heading", {
+          level: 3,
+          name: title,
+        }),
+      ).toBeVisible();
+    }
 
-    await expect(
-      screens.getByRole("heading", {
-        level: 3,
-        name: "Journal List",
-      }),
-    ).toBeVisible();
-
-    await expect(
-      screens.getByRole("heading", {
-        level: 3,
-        name: "Journal Entry Modal",
-      }),
-    ).toBeVisible();
-
-    // Concept
-    const concept = page.locator("#concept");
-
-    await expect(
-      concept.getByRole("heading", {
-        level: 2,
-        name: "The Goal Is to Commit to Who You Are Today",
-      }),
-    ).toBeVisible();
-
-    await expect(
-      concept.getByRole("heading", {
-        level: 3,
-        name: "One Entry per Day",
-      }),
-    ).toBeVisible();
-
-    await expect(
-      concept.getByRole("heading", {
-        level: 3,
-        name: "No Deleting on the Same Day",
-      }),
-    ).toBeVisible();
-
-    await expect(
-      concept.getByRole("heading", {
-        level: 3,
-        name: "Up to Three Edits",
-      }),
-    ).toBeVisible();
-
-    await expect(
-      concept.getByRole("heading", {
-        level: 3,
-        name: "Delete from the Next Day Onward",
-      }),
-    ).toBeVisible();
-
-    // Design philosophy
+    // Usability
     await expect(
       page.getByRole("heading", {
         level: 2,
-        name: "Pawth's Design Philosophy",
+        name: "Simple and Easy to Use",
       }),
     ).toBeVisible();
 
-    await expect(
-      page.getByText("Not a social network", {
-        exact: true,
-      }),
-    ).toBeVisible();
+    for (const title of ["Simple UI", "Swipe Support", "Responsive Design"]) {
+      await expect(
+        page.getByRole("heading", {
+          level: 3,
+          name: title,
+        }),
+      ).toBeVisible();
+    }
 
-    await expect(
-      page.getByText("No timeline", {
-        exact: true,
-      }),
-    ).toBeVisible();
-
-    await expect(
-      page.getByText("No followers or following", {
-        exact: true,
-      }),
-    ).toBeVisible();
-
-    await expect(
-      page.getByText("Optimized for self-reflection", {
-        exact: true,
-      }),
-    ).toBeVisible();
-
-    // Tech
+    // Theme Colors
     await expect(
       page.getByRole("heading", {
         level: 2,
-        name: "What We Focused on in Development",
+        name: "Make It Feel Like Yours",
       }),
     ).toBeVisible();
 
     await expect(
-      page.getByText("Automated testing (Playwright)", {
-        exact: true,
-      }),
-    ).toBeVisible();
-
-    await expect(
-      page.getByText("Reproducible development environment (Docker)", {
-        exact: true,
-      }),
-    ).toBeVisible();
-
-    // Highlights
-    await expect(
-      page.getByRole("heading", {
-        level: 2,
-        name: "Design Beyond Basic CRUD",
+      page.getByRole("button", {
+        name: "Enlarge dark theme screen",
       }),
     ).toBeVisible();
 
@@ -180,23 +92,14 @@ test.describe("English locale", () => {
     ).toBeVisible();
 
     // Theme switcher
-    await expect(
-      page.getByRole("button", {
-        name: "Light theme",
-      }),
-    ).toBeEnabled();
-
-    await expect(
-      page.getByRole("button", {
-        name: "Dark theme",
-      }),
-    ).toBeEnabled();
-
-    await expect(
-      page.getByRole("button", {
-        name: "System theme",
-      }),
-    ).toBeEnabled();
+    for (const name of ["Light theme", "Dark theme", "System theme"]) {
+      await expect(
+        page.getByRole("button", {
+          name,
+          exact: true,
+        }),
+      ).toBeEnabled();
+    }
 
     // Language switcher
     const footer = page.locator("footer");
@@ -213,6 +116,13 @@ test.describe("English locale", () => {
       }),
     ).toHaveAttribute("aria-pressed", "false");
 
+    // Footer
+    await expect(
+      footer.getByText(`© ${new Date().getFullYear()} Pawth`, {
+        exact: true,
+      }),
+    ).toBeVisible();
+
     // Back to top
     await page.evaluate(() => {
       window.scrollTo(0, 1000);
@@ -221,13 +131,6 @@ test.describe("English locale", () => {
     await expect(
       page.getByRole("button", {
         name: "Back to top",
-      }),
-    ).toBeVisible();
-
-    // Footer
-    await expect(
-      footer.getByText(`© ${new Date().getFullYear()} Pawth`, {
-        exact: true,
       }),
     ).toBeVisible();
   });
@@ -250,7 +153,7 @@ test.describe("English locale", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "ja");
 
     await expect(
-      page.getByText("日々の足あとを描く、1日1投稿の小さな日記アプリ", {
+      page.getByText("日々の足あとを残す、1日1投稿の日記アプリ", {
         exact: true,
       }),
     ).toBeVisible();
@@ -274,7 +177,7 @@ test.describe("English locale", () => {
     await expect(
       page.getByRole("heading", {
         level: 2,
-        name: "Pawth の3つの画面",
+        name: "Pawthでできること",
       }),
     ).toBeVisible();
 
@@ -307,9 +210,12 @@ test.describe("English locale", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
 
     await expect(
-      page.getByText("A small journaling app for recording one entry a day", {
-        exact: true,
-      }),
+      page.getByText(
+        "A daily journal for leaving one small footprint each day",
+        {
+          exact: true,
+        },
+      ),
     ).toBeVisible();
 
     await expect(
@@ -325,7 +231,7 @@ test.describe("English locale", () => {
     await expect(
       page.getByRole("heading", {
         level: 2,
-        name: "Three Screens in Pawth",
+        name: "What You Can Do with Pawth",
       }),
     ).toBeVisible();
 
