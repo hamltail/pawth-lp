@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "Pawth | A Small Daily Journaling App",
-    "description": "A journaling app that helps you visualize your daily journey and commit to today's reflection."
+    "description": "A daily journaling app for recording one entry a day and looking back through your calendar and timeline."
   },
   "Hero": {
     "label": "About Pawth",
@@ -31,6 +31,29 @@
       "description": "Choose the icon displayed on your calendar and change the visibility of your journal.",
       "button": "Enlarge settings screen"
     }
+  },
+  "Usability": {
+    "label": "Usability",
+    "title": "Simple and Easy to Use",
+    "description": "Because Pawth is designed for everyday use, it keeps features focused and interactions simple and intuitive.",
+    "record": {
+      "title": "Simple UI",
+      "description": "Pawth focuses on the features you need, with a clean interface designed to stay easy to navigate."
+    },
+    "calendar": {
+      "title": "Swipe Support",
+      "description": "On smartphones, swipe gestures make it natural to move between screens and journal entries."
+    },
+    "timeline": {
+      "title": "Responsive Design",
+      "description": "Pawth adapts to desktops, tablets, and smartphones for a comfortable experience across screen sizes."
+    }
+  },
+  "ThemeColors": {
+    "label": "Theme Colors",
+    "title": "Make It Feel Like Yours",
+    "description": "Choose between light, dark, and system themes to match your environment and preference.",
+    "imageAlt": "Pawth calendar displayed in dark theme"
   },
   "Notice": {
     "message": "The production environment is currently offline."

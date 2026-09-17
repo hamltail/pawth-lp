@@ -40,7 +40,7 @@ export default function Screens({ onImageClick }: ScreensProps) {
             {t("label")}
           </p>
 
-          <h2 className="text-[clamp(2rem,5vw,3.5rem)] leading-tight font-black">
+          <h2 className="title-glow text-[clamp(2rem,5vw,3.5rem)] leading-tight font-black">
             {t("title")}
           </h2>
 
@@ -52,34 +52,49 @@ export default function Screens({ onImageClick }: ScreensProps) {
         <div className="space-y-24 md:space-y-32">
           {screens.map((screen, index) => {
             const alt = t(`${screen.id}.alt`);
+            const isReversed = index % 2 === 1;
+            const isSettings = screen.id === "settings";
 
             return (
               <article
                 key={screen.id}
-                className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(240px,0.35fr)] md:gap-12"
+                className="grid items-center gap-8 md:grid-cols-2 md:gap-16"
               >
-                <button
-                  type="button"
-                  className="group relative overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--shadow)"
-                  onClick={() =>
-                    onImageClick({
-                      src: screen.src,
-                      alt,
-                    })
-                  }
-                  aria-label={t(`${screen.id}.button`)}
+                <div
+                  className={`${
+                    isReversed ? "md:order-2" : "md:order-1"
+                  } ${isSettings ? "flex justify-center" : ""}`}
                 >
-                  <Image
-                    src={screen.src}
-                    alt={alt}
-                    width={1600}
-                    height={1000}
-                    sizes="(max-width: 768px) 100vw, 70vw"
-                    className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.01]"
-                  />
-                </button>
+                  <button
+                    type="button"
+                    className={`group relative overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--shadow) ${
+                      isSettings ? "w-full max-w-md" : "w-full"
+                    }`}
+                    onClick={() =>
+                      onImageClick({
+                        src: screen.src,
+                        alt,
+                      })
+                    }
+                    aria-label={t(`${screen.id}.button`)}
+                  >
+                    <Image
+                      src={screen.src}
+                      alt={alt}
+                      width={1600}
+                      height={1000}
+                      sizes={
+                        isSettings
+                          ? "(max-width: 768px) 90vw, 448px"
+                          : "(max-width: 768px) 100vw, 50vw"
+                      }
+                      draggable={false}
+                      className="h-auto w-full select-none transition-transform duration-500 group-hover:scale-[1.01]"
+                    />
+                  </button>
+                </div>
 
-                <div>
+                <div className={isReversed ? "md:order-1" : "md:order-2"}>
                   <p className="mb-3 text-sm font-bold tracking-[0.12em] text-(--accent)">
                     {String(index + 1).padStart(2, "0")}
                   </p>

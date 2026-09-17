@@ -13,7 +13,7 @@ export default function Hero() {
             {t("label")}
           </p>
 
-          <h1 className="text-[clamp(3.5rem,9vw,7rem)] leading-none font-black tracking-tight">
+          <h1 className="title-glow text-[clamp(3.5rem,9vw,7rem)] leading-none font-black tracking-tight">
             {t("title")}
             <span className="ml-3 inline-block" aria-hidden="true">
               🐾

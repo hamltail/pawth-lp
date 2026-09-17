@@ -3,6 +3,8 @@ import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Notice from "../components/Notice";
 import ScreensWithModal from "../components/ScreensWithModal";
+import ThemeColors from "../components/ThemeColors";
+import Usability from "../components/Usability";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
       <main>
         <Hero />
         <ScreensWithModal />
+        <Usability />
+        <ThemeColors />
         <Notice />
       </main>
 
