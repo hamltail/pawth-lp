@@ -1,85 +1,60 @@
 {
   "Metadata": {
     "title": "Pawth | A Small Daily Journaling App",
-    "description": "A journaling app that helps you visualize your daily journey and commit to today's reflection."
+    "description": "A daily journaling app for recording one entry a day and looking back through your calendar and timeline."
   },
   "Hero": {
     "label": "About Pawth",
     "title": "Pawth",
-    "imageAlt": "Pawth app image",
-    "lead": "A small journaling app for recording one entry a day",
-    "description": "Pawth is a journaling app designed to visualize your daily journey and help you commit to today's reflection.",
-    "github": "View on GitHub",
-    "concept": "View Concept"
+    "lead": "A daily journal for leaving one small footprint each day",
+    "description": "Record your day, then look back on your journey through the calendar and timeline."
   },
   "Screens": {
     "label": "App Screens",
-    "title": "Three Screens in Pawth",
+    "title": "What You Can Do with Pawth",
+    "description": "Record each day and look back on the days you've accumulated in different ways.",
     "calendar": {
-      "alt": "Calendar screen",
+      "alt": "Pawth calendar screen",
       "title": "Calendar",
-      "description": "See your daily journey at a glance and visualize your posting rhythm.",
+      "description": "Each day you write an entry leaves a footprint on the calendar, making it easy to revisit what you recorded that day.",
       "button": "Enlarge calendar screen"
     },
-    "list": {
-      "alt": "Journal list screen",
-      "title": "Journal List",
-      "description": "A list view designed to make past entries easy to revisit and reflect on.",
-      "button": "Enlarge journal list screen"
+    "timeline": {
+      "alt": "Pawth timeline screen",
+      "title": "Timeline",
+      "description": "Browse your past entries chronologically and scroll through the record you've built over time.",
+      "button": "Enlarge timeline screen"
     },
-    "modal": {
-      "alt": "Journal entry modal screen",
-      "title": "Journal Entry Modal",
-      "description": "A simple one-entry-per-day experience that makes daily journaling easy.",
-      "button": "Enlarge journal entry modal screen"
+    "settings": {
+      "alt": "Pawth settings screen",
+      "title": "Customize",
+      "description": "Choose the icon displayed on your calendar and change the visibility of your journal.",
+      "button": "Enlarge settings screen"
     }
   },
-  "Concept": {
-    "label": "Concept",
-    "title": "The Goal Is to Commit to Who You Are Today",
-    "onePost": {
-      "title": "One Entry per Day",
-      "description": "Limiting daily entries gives each record more meaning."
+  "Usability": {
+    "label": "Usability",
+    "title": "Simple and Easy to Use",
+    "description": "Because Pawth is designed for everyday use, it keeps features focused and interactions simple and intuitive.",
+    "record": {
+      "title": "Simple UI",
+      "description": "Pawth focuses on the features you need, with a clean interface designed to stay easy to navigate."
     },
-    "noDeleteToday": {
-      "title": "No Deleting on the Same Day",
-      "description": "Today's entry remains as a commitment to yourself for that day."
+    "calendar": {
+      "title": "Swipe Support",
+      "description": "On smartphones, swipe gestures make it natural to move between screens and journal entries."
     },
-    "editLimit": {
-      "title": "Up to Three Edits",
-      "description": "Encourages reflection while preventing endless revisions."
-    },
-    "deleteLater": {
-      "title": "Delete from the Next Day Onward",
-      "description": "Leaves room to reorganize entries after giving yourself time to reflect."
+    "timeline": {
+      "title": "Responsive Design",
+      "description": "Pawth adapts to desktops, tablets, and smartphones for a comfortable experience across screen sizes."
     }
   },
-  "Negative": {
-    "label": "Features We Chose Not to Add",
-    "title": "Pawth's Design Philosophy",
-    "noSocial": "Not a social network",
-    "noTimeline": "No timeline",
-    "noFollow": "No followers or following",
-    "reflection": "Optimized for self-reflection"
-  },
-  "Tech": {
-    "label": "Technical & Design Focus",
-    "title": "What We Focused on in Development",
-    "constraint": "Constraint-driven design",
-    "ux": "UX improvement mindset",
-    "ui": "UI designed for consistency",
-    "accessibility": "Accessibility",
-    "tailwind": "Utility-first styling (Tailwind CSS)",
-    "playwright": "Automated testing (Playwright)",
-    "docker": "Reproducible development environment (Docker)",
-    "aws": "Production-oriented architecture (AWS)"
-  },
-  "Highlights": {
-    "label": "Portfolio Highlights",
-    "title": "Design Beyond Basic CRUD",
-    "habit": "Designed not just for CRUD, but to support habit building and reflection.",
-    "constraint": "The experience is shaped not only by the UI, but also by intentional usage constraints.",
-    "quality": "A personal project developed with QA and UX perspectives in mind."
+  "ThemeColors": {
+    "label": "Theme Colors",
+    "title": "Make It Feel Like Yours",
+    "description": "Choose between light, dark, and system themes to match your environment and preference.",
+    "imageAlt": "Pawth calendar displayed in dark theme",
+    "imageButton": "Enlarge dark theme screen"
   },
   "Notice": {
     "message": "The production environment is currently offline."
