@@ -22,7 +22,7 @@ export default function ThemeColors({ onImageClick }: ThemeColorsProps) {
     <section className="py-20 md:py-28">
       <Container>
         <FadeIn>
-          <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+          <div className="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
             <div>
               <p className="mb-4 text-sm font-bold tracking-[0.14em] text-(--accent) uppercase">
                 {t("label")}

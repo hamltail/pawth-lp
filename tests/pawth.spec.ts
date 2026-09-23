@@ -59,8 +59,8 @@ test("Pawth LPの主要コンテンツが正しく表示される", async ({ pag
     },
     {
       title: "カスタマイズ",
-      imageAlt: "Pawthの設定画面",
-      buttonLabel: "設定画面を拡大表示",
+      imageAlt: "Pawthのプロフィール設定画面",
+      buttonLabel: "プロフィール設定画面を拡大表示",
     },
   ];
 
@@ -81,6 +81,7 @@ test("Pawth LPの主要コンテンツが正しく表示される", async ({ pag
     await expect(
       card.getByRole("button", {
         name: item.buttonLabel,
+        exact: true,
       }),
     ).toBeVisible();
 
@@ -108,6 +109,18 @@ test("Pawth LPの主要コンテンツが正しく表示される", async ({ pag
       }),
     ).toBeVisible();
   }
+
+  await expect(
+    page.getByRole("img", {
+      name: "スマートフォンで表示したPawthのカレンダー画面",
+    }),
+  ).toBeVisible();
+
+  await expect(
+    page.getByRole("img", {
+      name: "スマートフォンで表示したPawthのタイムライン画面",
+    }),
+  ).toBeVisible();
 
   // Theme Colors
   const themeColorsHeading = page.getByRole("heading", {
@@ -166,7 +179,7 @@ test("Pawth LPの主要コンテンツが正しく表示される", async ({ pag
   ).toBeVisible();
 });
 
-test("4つの画面画像をそれぞれモーダルで表示できる", async ({ page }) => {
+test("6つの画面画像をそれぞれモーダルで表示できる", async ({ page }) => {
   await page.goto("/");
 
   const images = [
@@ -179,8 +192,16 @@ test("4つの画面画像をそれぞれモーダルで表示できる", async (
       caption: "Pawthのタイムライン画面",
     },
     {
-      buttonLabel: "設定画面を拡大表示",
-      caption: "Pawthの設定画面",
+      buttonLabel: "プロフィール設定画面を拡大表示",
+      caption: "Pawthのプロフィール設定画面",
+    },
+    {
+      buttonLabel: "スマートフォンのカレンダー画面を拡大表示",
+      caption: "スマートフォンで表示したPawthのカレンダー画面",
+    },
+    {
+      buttonLabel: "スマートフォンのタイムライン画面を拡大表示",
+      caption: "スマートフォンで表示したPawthのタイムライン画面",
     },
     {
       buttonLabel: "ダークテーマの画面を拡大表示",
@@ -191,6 +212,7 @@ test("4つの画面画像をそれぞれモーダルで表示できる", async (
   for (const image of images) {
     const imageButton = page.getByRole("button", {
       name: image.buttonLabel,
+      exact: true,
     });
 
     await imageButton.scrollIntoViewIfNeeded();
@@ -235,6 +257,7 @@ test("画像モーダルをEscapeキーで閉じられる", async ({ page }) => 
 
   const imageButton = page.getByRole("button", {
     name: "タイムライン画面を拡大表示",
+    exact: true,
   });
 
   await imageButton.scrollIntoViewIfNeeded();
@@ -256,6 +279,7 @@ test("画像モーダルの背景をクリックすると閉じられる", async
 
   const imageButton = page.getByRole("button", {
     name: "カレンダー画面を拡大表示",
+    exact: true,
   });
 
   await imageButton.scrollIntoViewIfNeeded();

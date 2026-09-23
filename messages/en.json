@@ -26,10 +26,10 @@
       "button": "Enlarge timeline screen"
     },
     "settings": {
-      "alt": "Pawth settings screen",
+      "alt": "Pawth profile settings screen",
       "title": "Customize",
-      "description": "Choose the icon displayed on your calendar and change the visibility of your journal.",
-      "button": "Enlarge settings screen"
+      "description": "Customize your profile image, display name, calendar icon, and journal visibility to make Pawth your own.",
+      "button": "Enlarge profile settings screen"
     }
   },
   "Usability": {
@@ -47,6 +47,14 @@
     "timeline": {
       "title": "Responsive Design",
       "description": "Pawth adapts to desktops, tablets, and smartphones for a comfortable experience across screen sizes."
+    },
+    "mobileCalendar": {
+      "alt": "Pawth calendar displayed on a smartphone",
+      "button": "Enlarge smartphone calendar screen"
+    },
+    "mobileTimeline": {
+      "alt": "Pawth timeline displayed on a smartphone",
+      "button": "Enlarge smartphone timeline screen"
     }
   },
   "ThemeColors": {

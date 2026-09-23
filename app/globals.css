@@ -18,6 +18,7 @@
 
   --border: #e9e5f7;
   --shadow: 0 24px 80px rgba(109, 40, 217, 0.08);
+  --screen-shadow: 0 24px 80px rgba(109, 40, 217, 0.08);
 
   --notice-bg: #fff5f8;
   --notice-border: #fde0ea;
@@ -44,7 +45,9 @@
   --accent: #f9a8d4;
 
   --border: #342d42;
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  --shadow: 0 24px 80px rgba(255, 248, 252, 0.2);
+  --screen-shadow:
+    0 18px 50px rgba(255, 248, 252, 0.32), 0 0 28px rgba(249, 168, 212, 0.22);
 
   --notice-bg: #2a1822;
   --notice-border: #533044;
