@@ -11,7 +11,7 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "test": "npm run format:check && npm run lint && npm run typecheck && npm run build && npm run test:unit && npm run test:e2e && npm run test:lighthouse && npm run test:mutation",
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
