@@ -56,9 +56,7 @@ export default function Screens({ onImageClick }: ScreensProps) {
             {t("title")}
           </h2>
 
-          <p className="mt-5 max-w-2xl leading-8 text-(--muted)">
-            {t("description")}
-          </p>
+          <p className="mt-5 leading-8 text-(--muted)">{t("description")}</p>
         </div>
 
         <div className="space-y-24 md:space-y-32">

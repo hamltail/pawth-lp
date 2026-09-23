@@ -52,9 +52,7 @@ export default function Usability({ onImageClick }: UsabilityProps) {
               {t("title")}
             </h2>
 
-            <p className="mt-5 max-w-2xl leading-8 text-(--muted)">
-              {t("description")}
-            </p>
+            <p className="mt-5 leading-8 text-(--muted)">{t("description")}</p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-3">
@@ -84,7 +82,7 @@ export default function Usability({ onImageClick }: UsabilityProps) {
                 <button
                   key={screen.id}
                   type="button"
-                  className="group mx-auto w-full"
+                  className="group mx-auto w-full overflow-hidden rounded-3xl"
                   onClick={() =>
                     onImageClick({
                       src: screen.modalSrc,
