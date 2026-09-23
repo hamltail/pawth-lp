@@ -72,7 +72,7 @@ export default function Screens({ onImageClick }: ScreensProps) {
                 <div className={isReversed ? "md:order-2" : "md:order-1"}>
                   <button
                     type="button"
-                    className="group relative w-full overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--shadow)"
+                    className="group relative w-full overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--screen-shadow)"
                     onClick={() =>
                       onImageClick({
                         src: screen.modalSrc,

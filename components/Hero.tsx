@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className="py-20 md:py-28">
       <Container>
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <p className="mb-5 text-sm font-bold tracking-[0.14em] text-(--accent) uppercase">
             {t("label")}
           </p>
@@ -24,7 +24,7 @@ export default function Hero() {
             {t("lead")}
           </p>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-(--muted) md:text-lg">
+          <p className="mx-auto mt-5 text-base leading-8 text-(--muted) md:text-lg">
             {t("description")}
           </p>
         </div>
