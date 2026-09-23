@@ -22,7 +22,7 @@ export default function ShowcaseWithModal() {
   return (
     <>
       <Screens onImageClick={setSelectedImage} />
-      <Usability />
+      <Usability onImageClick={setSelectedImage} />
       <ThemeColors onImageClick={setSelectedImage} />
       <ImageModal image={selectedImage} onClose={closeModal} />
     </>

@@ -1,11 +1,42 @@
+import Image, { type StaticImageData } from "next/image";
 import { useTranslations } from "next-intl";
 
+import mobileCalendarImage from "../public/images/pawth-mobile-calendar.webp";
+import mobileTimelineImage from "../public/images/pawth-mobile-timeline.webp";
 import Container from "./Container";
 import FadeIn from "./FadeIn";
 
+type UsabilityImage = {
+  src: string;
+  alt: string;
+};
+
+type UsabilityProps = {
+  onImageClick: (image: UsabilityImage) => void;
+};
+
+type MobileScreen = {
+  id: "mobileCalendar" | "mobileTimeline";
+  src: StaticImageData;
+  modalSrc: string;
+};
+
 const items = ["record", "calendar", "timeline"] as const;
 
-export default function Usability() {
+const mobileScreens: MobileScreen[] = [
+  {
+    id: "mobileCalendar",
+    src: mobileCalendarImage,
+    modalSrc: "/images/pawth-mobile-calendar.webp",
+  },
+  {
+    id: "mobileTimeline",
+    src: mobileTimelineImage,
+    modalSrc: "/images/pawth-mobile-timeline.webp",
+  },
+];
+
+export default function Usability({ onImageClick }: UsabilityProps) {
   const t = useTranslations("Usability");
 
   return (
@@ -43,6 +74,35 @@ export default function Usability() {
                 </p>
               </article>
             ))}
+          </div>
+
+          <div className="mx-auto mt-16 grid max-w-3xl gap-8 md:mt-20 md:grid-cols-2 md:gap-12">
+            {mobileScreens.map((screen) => {
+              const alt = t(`${screen.id}.alt`);
+
+              return (
+                <button
+                  key={screen.id}
+                  type="button"
+                  className="group mx-auto w-full"
+                  onClick={() =>
+                    onImageClick({
+                      src: screen.modalSrc,
+                      alt,
+                    })
+                  }
+                  aria-label={t(`${screen.id}.button`)}
+                >
+                  <Image
+                    src={screen.src}
+                    alt={alt}
+                    sizes="(max-width: 768px) 90vw, 50vw"
+                    draggable={false}
+                    className="h-auto w-full select-none transition-transform duration-500 group-hover:scale-[1.01]"
+                  />
+                </button>
+              );
+            })}
           </div>
         </FadeIn>
       </Container>

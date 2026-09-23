@@ -1,8 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { useTranslations } from "next-intl";
 
+import calendarImage from "../public/images/pawth-calendar.webp";
+import settingsImage from "../public/images/pawth-settings.webp";
+import timelineImage from "../public/images/pawth-timeline.webp";
 import Container from "./Container";
 
 type ScreenImage = {
@@ -14,20 +17,29 @@ type ScreensProps = {
   onImageClick: (image: ScreenImage) => void;
 };
 
-const screens = [
+type Screen = {
+  id: "calendar" | "timeline" | "settings";
+  src: StaticImageData;
+  modalSrc: string;
+};
+
+const screens: Screen[] = [
   {
     id: "calendar",
-    src: "/images/pawth-calendar.webp",
+    src: calendarImage,
+    modalSrc: "/images/pawth-calendar.webp",
   },
   {
     id: "timeline",
-    src: "/images/pawth-timeline.webp",
+    src: timelineImage,
+    modalSrc: "/images/pawth-timeline.webp",
   },
   {
     id: "settings",
-    src: "/images/pawth-settings.webp",
+    src: settingsImage,
+    modalSrc: "/images/pawth-settings.webp",
   },
-] as const;
+];
 
 export default function Screens({ onImageClick }: ScreensProps) {
   const t = useTranslations("Screens");
@@ -53,26 +65,19 @@ export default function Screens({ onImageClick }: ScreensProps) {
           {screens.map((screen, index) => {
             const alt = t(`${screen.id}.alt`);
             const isReversed = index % 2 === 1;
-            const isSettings = screen.id === "settings";
 
             return (
               <article
                 key={screen.id}
                 className="grid items-center gap-8 md:grid-cols-2 md:gap-16"
               >
-                <div
-                  className={`${
-                    isReversed ? "md:order-2" : "md:order-1"
-                  } ${isSettings ? "flex justify-center" : ""}`}
-                >
+                <div className={isReversed ? "md:order-2" : "md:order-1"}>
                   <button
                     type="button"
-                    className={`group relative overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--shadow) ${
-                      isSettings ? "w-full max-w-md" : "w-full"
-                    }`}
+                    className="group relative w-full overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--shadow)"
                     onClick={() =>
                       onImageClick({
-                        src: screen.src,
+                        src: screen.modalSrc,
                         alt,
                       })
                     }
@@ -81,13 +86,7 @@ export default function Screens({ onImageClick }: ScreensProps) {
                     <Image
                       src={screen.src}
                       alt={alt}
-                      width={1600}
-                      height={1000}
-                      sizes={
-                        isSettings
-                          ? "(max-width: 768px) 90vw, 448px"
-                          : "(max-width: 768px) 100vw, 50vw"
-                      }
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       draggable={false}
                       className="h-auto w-full select-none transition-transform duration-500 group-hover:scale-[1.01]"
                     />
