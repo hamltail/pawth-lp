@@ -120,9 +120,11 @@ export default function HeroPawTrail() {
       {trail.map((step, index) => (
         <span
           key={`${index}-${step.x}-${step.y}-${step.rotation}`}
-          className={`hero-paw-step hero-paw-step-${index + 1}`}
+          className={`hero-paw-step-wrapper hero-paw-step-wrapper-${index + 1}`}
           style={createStepStyle(step)}
-        />
+        >
+          <span className={`hero-paw-step hero-paw-step-${index + 1}`} />
+        </span>
       ))}
     </div>
   );
