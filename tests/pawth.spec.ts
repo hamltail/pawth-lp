@@ -151,6 +151,13 @@ test("Pawth LPの主要コンテンツが正しく表示される", async ({ pag
   await footer.scrollIntoViewIfNeeded();
 
   await expect(
+    footer.getByRole("link", {
+      name: "GitHub",
+      exact: true,
+    }),
+  ).toHaveAttribute("href", "https://github.com/hamltail/Pawth#readme");
+
+  await expect(
     footer.getByText(`© ${new Date().getFullYear()} Pawth`, {
       exact: true,
     }),
