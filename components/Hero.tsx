@@ -13,10 +13,14 @@ export default function Hero() {
             {t("label")}
           </p>
 
-          <h1 className="title-glow text-[clamp(3.5rem,9vw,7rem)] leading-none font-black tracking-tight">
+          <h1 className="hero-title flex items-center justify-center gap-3 text-[clamp(3.5rem,9vw,7rem)] leading-none font-black tracking-tight">
             {t("title")}
-            <span className="ml-3 inline-block" aria-hidden="true">
-              🐾
+
+            <span
+              className="hero-paw-wrapper inline-block h-[0.9em] w-[0.9em] shrink-0"
+              aria-hidden="true"
+            >
+              <span className="hero-paw" />
             </span>
           </h1>
 
