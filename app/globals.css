@@ -334,6 +334,24 @@ body {
   background: rgb(244 241 248 / 25%);
 }
 
+/* Theme colors card glow */
+
+.theme-colors-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.theme-colors-card-glow {
+  position: absolute;
+  inset: 8%;
+  z-index: 0;
+  border-radius: 1.5rem;
+  background: var(--primary-soft);
+  filter: blur(42px);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
 /* Section titles */
 
 .title-gradient {
