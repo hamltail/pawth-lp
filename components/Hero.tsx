@@ -21,7 +21,7 @@ export default function Hero() {
               {t("title")}
 
               <span
-                className="hero-paw-wrapper inline-block h-[0.9em] w-[0.9em] shrink-0"
+                className="hero-paw-wrapper inline-block h-[0.96em] w-[0.96em] shrink-0"
                 aria-hidden="true"
               >
                 <span className="hero-paw" />
