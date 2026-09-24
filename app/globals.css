@@ -16,6 +16,9 @@
   --primary-soft: #e9ddff;
   --accent: #f472b6;
 
+  /* Heading gradient */
+  --title-gradient-end: #5630a3;
+
   --border: #e9e5f7;
   --shadow: 0 24px 80px rgba(109, 40, 217, 0.08);
   --screen-shadow: 0 24px 80px rgba(109, 40, 217, 0.08);
@@ -44,6 +47,9 @@
   --primary-soft: #33274d;
   --accent: #f9a8d4;
 
+  /* Heading gradient */
+  --title-gradient-end: #8b6fc7;
+
   --border: #342d42;
   --shadow: 0 24px 80px rgba(255, 248, 252, 0.2);
   --screen-shadow:
@@ -69,6 +75,20 @@ body {
   outline: 2px solid var(--focus);
   outline-offset: 4px;
   box-shadow: 0 0 12px var(--focus-glow);
+}
+
+/* Back to top */
+
+.back-to-top {
+  box-shadow:
+    0 8px 20px rgb(0 0 0 / 28%),
+    0 3px 8px rgb(0 0 0 / 18%);
+}
+
+.dark .back-to-top {
+  box-shadow:
+    0 0 14px rgb(167 139 250 / 40%),
+    0 0 30px rgb(167 139 250 / 24%);
 }
 
 /* Image modal */
@@ -153,6 +173,9 @@ body {
   }
 }
 
+/* Titles */
+
+/* Hero title */
 .title-glow {
   text-shadow: 0 4px 10px rgb(0 0 0 / 18%);
 }
@@ -162,4 +185,26 @@ body {
     0 0 8px color-mix(in srgb, var(--accent) 55%, transparent),
     0 0 18px color-mix(in srgb, var(--accent) 40%, transparent),
     0 0 32px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* Section titles */
+.title-gradient {
+  width: fit-content;
+  background: linear-gradient(
+    90deg,
+    var(--text) 0%,
+    var(--text) 20%,
+    var(--title-gradient-end) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 4px 10px rgb(0 0 0 / 18%);
+}
+
+.dark .title-gradient {
+  text-shadow:
+    0 0 8px rgb(244 241 248 / 35%),
+    0 0 18px rgb(167 139 250 / 28%),
+    0 0 32px rgb(167 139 250 / 18%);
 }

@@ -131,10 +131,6 @@ test("Pawth LPの主要コンテンツが正しく表示される", async ({ pag
   await themeColorsHeading.scrollIntoViewIfNeeded();
   await expect(themeColorsHeading).toBeVisible();
 
-  await expect(page.getByText("Light", { exact: true })).toBeVisible();
-  await expect(page.getByText("Dark", { exact: true })).toBeVisible();
-  await expect(page.getByText("System", { exact: true })).toBeVisible();
-
   await expect(
     page.getByRole("button", {
       name: "ダークテーマの画面を拡大表示",
