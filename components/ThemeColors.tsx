@@ -37,27 +37,31 @@ export default function ThemeColors({ onImageClick }: ThemeColorsProps) {
               </p>
             </div>
 
-            <button
-              type="button"
-              className="group w-full overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--shadow)"
-              onClick={() =>
-                onImageClick({
-                  src: imageSrc,
-                  alt: imageAlt,
-                })
-              }
-              aria-label={t("imageButton")}
-            >
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                width={1600}
-                height={900}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                draggable={false}
-                className="h-auto w-full select-none transition-transform duration-500 group-hover:scale-[1.01]"
-              />
-            </button>
+            <div className="theme-colors-card">
+              <div className="theme-colors-card-glow" aria-hidden="true" />
+
+              <button
+                type="button"
+                className="group relative z-10 w-full overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--screen-shadow)"
+                onClick={() =>
+                  onImageClick({
+                    src: imageSrc,
+                    alt: imageAlt,
+                  })
+                }
+                aria-label={t("imageButton")}
+              >
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt}
+                  width={1600}
+                  height={900}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  draggable={false}
+                  className="h-auto w-full select-none transition-transform duration-500 group-hover:scale-[1.01]"
+                />
+              </button>
+            </div>
           </div>
         </FadeIn>
       </Container>
