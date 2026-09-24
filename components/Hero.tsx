@@ -1,19 +1,16 @@
 import { useTranslations } from "next-intl";
 
 import Container from "./Container";
+import HeroPawTrail from "./HeroPawTrail";
 
 export default function Hero() {
   const t = useTranslations("Hero");
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-28">
+    <section className="relative overflow-visible py-20 md:py-28">
       <Container>
         <div className="relative isolate mx-auto max-w-4xl text-center">
-          <div className="hero-paw-trail" aria-hidden="true">
-            <span className="hero-paw-step hero-paw-step-1" />
-            <span className="hero-paw-step hero-paw-step-2" />
-            <span className="hero-paw-step hero-paw-step-3" />
-          </div>
+          <HeroPawTrail />
 
           <div className="relative z-10">
             <p className="mb-5 text-sm font-bold tracking-[0.14em] text-(--accent) uppercase">

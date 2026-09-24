@@ -235,11 +235,14 @@ body {
 
 .hero-paw-step {
   position: absolute;
+  left: var(--paw-x);
+  top: var(--paw-y);
   display: block;
   width: clamp(40px, 5vw, 64px);
   height: clamp(40px, 5vw, 64px);
   background: rgb(25 27 36 / 14%);
   opacity: 0;
+  transform: translate(-50%, -50%) rotate(var(--paw-rotation));
 
   mask-image: url("/favicon.svg");
   mask-position: center;
@@ -254,49 +257,16 @@ body {
   will-change: opacity;
 }
 
-/*
- * Desktop trail:
- * starts below the text area and walks toward the top-right.
- */
-
 .hero-paw-step-1 {
-  right: 24%;
-  bottom: -38%;
-  transform: rotate(18deg);
   animation: hero-paw-step-1 5.4s ease-in-out infinite;
 }
 
 .hero-paw-step-2 {
-  right: 12%;
-  bottom: -18%;
-  transform: rotate(23deg);
   animation: hero-paw-step-2 5.4s ease-in-out infinite;
 }
 
 .hero-paw-step-3 {
-  right: 0%;
-  bottom: 2%;
-  transform: rotate(19deg);
   animation: hero-paw-step-3 5.4s ease-in-out infinite;
-}
-
-/* Narrow screens */
-
-@media (max-width: 767px) {
-  .hero-paw-step-1 {
-    right: 20%;
-    bottom: -28%;
-  }
-
-  .hero-paw-step-2 {
-    right: 10%;
-    bottom: -13%;
-  }
-
-  .hero-paw-step-3 {
-    right: 0%;
-    bottom: 2%;
-  }
 }
 
 /*
