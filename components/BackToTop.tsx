@@ -33,11 +33,25 @@ export default function BackToTop() {
   return (
     <button
       type="button"
-      className={`back-to-top fixed right-5 bottom-5 z-9999 inline-flex size-14 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-(--primary) text-white transition-[opacity,transform,visibility,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:-rotate-6 hover:bg-violet-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--primary) max-[720px]:right-[0.9rem] max-[720px]:bottom-[0.9rem] max-[720px]:size-12 ${
-        isVisible
-          ? "visible translate-y-0 opacity-100"
-          : "invisible translate-y-3 opacity-0"
-      }`}
+      className={`
+        back-to-top fixed right-5 bottom-5 z-9999
+        inline-flex size-14 cursor-pointer items-center justify-center
+        rounded-full border border-white/20
+        bg-(--primary) text-white
+        transition-[opacity,transform,visibility,background-color]
+        duration-300 ease-out
+        hover:-translate-y-0.5 hover:-rotate-6 hover:bg-violet-500
+        dark:hover:bg-violet-700
+        focus-visible:outline-2 focus-visible:outline-offset-4
+        focus-visible:outline-(--primary)
+        max-[720px]:right-[0.9rem] max-[720px]:bottom-[0.9rem]
+        max-[720px]:size-12
+        ${
+          isVisible
+            ? "visible translate-y-0 opacity-100"
+            : "invisible translate-y-3 opacity-0"
+        }
+      `}
       aria-label={t("label")}
       onClick={scrollToTop}
     >
