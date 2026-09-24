@@ -6,6 +6,7 @@ type PawStep = {
   x: number;
   y: number;
   rotation: number;
+  hue: number;
 };
 
 type PawTrail = [PawStep, PawStep, PawStep];
@@ -14,25 +15,35 @@ type PawStepStyle = CSSProperties & {
   "--paw-x": string;
   "--paw-y": string;
   "--paw-rotation": string;
+  "--paw-hue": number;
 };
 
 const TRAIL_DURATION = 5400;
+
+const HUE_RANGES = [
+  [270, 310],
+  [15, 35],
+  [42, 58],
+] as const;
 
 const FIRST_TRAIL: PawTrail = [
   {
     x: 76,
     y: 138,
     rotation: 18,
+    hue: 280,
   },
   {
     x: 88,
     y: 118,
     rotation: 23,
+    hue: 25,
   },
   {
     x: 100,
     y: 98,
     rotation: 19,
+    hue: 50,
   },
 ];
 
@@ -87,11 +98,16 @@ function createRandomTrail(): PawTrail {
 
   const pawRotation = angle + 90;
 
-  return [0, 1, 2].map((index) => ({
-    x: startX + deltaX * index,
-    y: startY + deltaY * index,
-    rotation: pawRotation + randomBetween(-5, 5),
-  })) as PawTrail;
+  return [0, 1, 2].map((index) => {
+    const [minHue, maxHue] = HUE_RANGES[index];
+
+    return {
+      x: startX + deltaX * index,
+      y: startY + deltaY * index,
+      rotation: pawRotation + randomBetween(-5, 5),
+      hue: randomBetween(minHue, maxHue),
+    };
+  }) as PawTrail;
 }
 
 function createStepStyle(step: PawStep): PawStepStyle {
@@ -99,6 +115,7 @@ function createStepStyle(step: PawStep): PawStepStyle {
     "--paw-x": `${step.x}%`,
     "--paw-y": `${step.y}%`,
     "--paw-rotation": `${step.rotation}deg`,
+    "--paw-hue": step.hue,
   };
 }
 
@@ -120,9 +137,11 @@ export default function HeroPawTrail() {
       {trail.map((step, index) => (
         <span
           key={`${index}-${step.x}-${step.y}-${step.rotation}`}
-          className={`hero-paw-step hero-paw-step-${index + 1}`}
+          className={`hero-paw-step-wrapper hero-paw-step-wrapper-${index + 1}`}
           style={createStepStyle(step)}
-        />
+        >
+          <span className={`hero-paw-step hero-paw-step-${index + 1}`} />
+        </span>
       ))}
     </div>
   );
