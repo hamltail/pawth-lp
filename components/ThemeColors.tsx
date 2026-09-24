@@ -28,7 +28,7 @@ export default function ThemeColors({ onImageClick }: ThemeColorsProps) {
                 {t("label")}
               </p>
 
-              <h2 className="title-glow text-[clamp(2rem,5vw,3.5rem)] leading-tight font-black">
+              <h2 className="title-gradient text-[clamp(2rem,5vw,3.5rem)] leading-tight font-black">
                 {t("title")}
               </h2>
 
