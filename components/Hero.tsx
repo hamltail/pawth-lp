@@ -6,31 +6,39 @@ export default function Hero() {
   const t = useTranslations("Hero");
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="relative overflow-hidden py-20 md:py-28">
       <Container>
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-5 text-sm font-bold tracking-[0.14em] text-(--accent) uppercase">
-            {t("label")}
-          </p>
+        <div className="relative isolate mx-auto max-w-4xl text-center">
+          <div className="hero-paw-trail" aria-hidden="true">
+            <span className="hero-paw-step hero-paw-step-1" />
+            <span className="hero-paw-step hero-paw-step-2" />
+            <span className="hero-paw-step hero-paw-step-3" />
+          </div>
 
-          <h1 className="hero-title flex items-center justify-center gap-3 text-[clamp(3.5rem,9vw,7rem)] leading-none font-black tracking-tight">
-            {t("title")}
+          <div className="relative z-10">
+            <p className="mb-5 text-sm font-bold tracking-[0.14em] text-(--accent) uppercase">
+              {t("label")}
+            </p>
 
-            <span
-              className="hero-paw-wrapper inline-block h-[0.9em] w-[0.9em] shrink-0"
-              aria-hidden="true"
-            >
-              <span className="hero-paw" />
-            </span>
-          </h1>
+            <h1 className="hero-title flex items-center justify-center gap-3 text-[clamp(3.5rem,9vw,7rem)] leading-none font-black tracking-tight">
+              {t("title")}
 
-          <p className="mt-8 text-[clamp(1.25rem,2vw,1.6rem)] leading-relaxed font-bold">
-            {t("lead")}
-          </p>
+              <span
+                className="hero-paw-wrapper inline-block h-[0.9em] w-[0.9em] shrink-0"
+                aria-hidden="true"
+              >
+                <span className="hero-paw" />
+              </span>
+            </h1>
 
-          <p className="mx-auto mt-5 text-base leading-8 text-(--muted) md:text-lg">
-            {t("description")}
-          </p>
+            <p className="mt-8 text-[clamp(1.25rem,2vw,1.6rem)] leading-relaxed font-bold">
+              {t("lead")}
+            </p>
+
+            <p className="mx-auto mt-5 text-base leading-8 text-(--muted) md:text-lg">
+              {t("description")}
+            </p>
+          </div>
         </div>
       </Container>
     </section>
