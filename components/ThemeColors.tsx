@@ -28,27 +28,13 @@ export default function ThemeColors({ onImageClick }: ThemeColorsProps) {
                 {t("label")}
               </p>
 
-              <h2 className="title-gradient text-[clamp(2rem,5vw,3.5rem)] leading-tight font-black">
+              <h2 className="title-glow title-gradient text-[clamp(2rem,5vw,3.5rem)] leading-tight font-black">
                 {t("title")}
               </h2>
 
               <p className="mt-5 leading-8 text-(--muted)">
                 {t("description")}
               </p>
-
-              <div className="mt-7 flex flex-wrap gap-3">
-                <span className="rounded-full border border-(--border) bg-(--surface) px-4 py-2 text-sm font-bold">
-                  Light
-                </span>
-
-                <span className="rounded-full border border-(--border) bg-(--surface) px-4 py-2 text-sm font-bold">
-                  Dark
-                </span>
-
-                <span className="rounded-full border border-(--border) bg-(--surface) px-4 py-2 text-sm font-bold">
-                  System
-                </span>
-              </div>
             </div>
 
             <button
