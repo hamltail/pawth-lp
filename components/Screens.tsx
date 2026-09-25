@@ -85,6 +85,7 @@ export default function Screens({ onImageClick }: ScreensProps) {
                       src={screen.src}
                       alt={alt}
                       sizes="(max-width: 768px) 100vw, 50vw"
+                      loading={index === 0 ? "eager" : "lazy"}
                       draggable={false}
                       className="h-auto w-full select-none transition-transform duration-500 group-hover:scale-[1.01]"
                     />
