@@ -23,13 +23,13 @@
   --hero-brand: #30323a;
 
   /* Seasonal hero paw trail */
-  --hero-paw-saturation: 90%;
-  --hero-paw-lightness: 55%;
-  --hero-paw-opacity: 25%;
+  --hero-paw-saturation: 55%;
+  --hero-paw-lightness: 52%;
+  --hero-paw-opacity: 22%;
 
-  --hero-paw-glow-saturation: 90%;
+  --hero-paw-glow-saturation: 50%;
   --hero-paw-glow-lightness: 55%;
-  --hero-paw-glow-opacity: 88%;
+  --hero-paw-glow-opacity: 38%;
 
   --border: #e9e5f7;
   --shadow: 0 24px 80px rgba(109, 40, 217, 0.08);
@@ -66,13 +66,13 @@
   --hero-brand: #f4f1f8;
 
   /* Seasonal hero paw trail */
-  --hero-paw-saturation: 100%;
-  --hero-paw-lightness: 95%;
-  --hero-paw-opacity: 75%;
+  --hero-paw-saturation: 48%;
+  --hero-paw-lightness: 64%;
+  --hero-paw-opacity: 48%;
 
-  --hero-paw-glow-saturation: 100%;
-  --hero-paw-glow-lightness: 82%;
-  --hero-paw-glow-opacity: 100%;
+  --hero-paw-glow-saturation: 45%;
+  --hero-paw-glow-lightness: 62%;
+  --hero-paw-glow-opacity: 48%;
 
   --border: #342d42;
   --shadow: 0 24px 80px rgba(255, 248, 252, 0.2);
@@ -261,9 +261,8 @@ body {
   opacity: 0;
   transform: translate(-50%, -50%) rotate(var(--paw-rotation));
   filter: drop-shadow(0 0 6px var(--hero-paw-glow))
-    drop-shadow(0 0 18px var(--hero-paw-glow))
-    drop-shadow(0 0 38px var(--hero-paw-glow))
-    drop-shadow(0 0 60px var(--hero-paw-glow));
+    drop-shadow(0 0 16px var(--hero-paw-glow))
+    drop-shadow(0 0 32px var(--hero-paw-glow));
   will-change: opacity;
 }
 
