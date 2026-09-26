@@ -17,6 +17,15 @@ export default function Footer() {
 
             <p className="m-0 text-[0.9rem] tracking-[0.04em] text-(--muted)">
               {t("copyright", { year: currentYear })}
+              <span aria-hidden="true"> / </span>
+              <a
+                href="https://animal.hamltail.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-opacity hover:opacity-70"
+              >
+                Animal Corporation
+              </a>
             </p>
           </div>
 
