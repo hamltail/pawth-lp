@@ -119,9 +119,16 @@ test.describe("English locale", () => {
     // Footer
     await expect(
       footer.getByText(`© ${new Date().getFullYear()} Pawth`, {
-        exact: true,
+        exact: false,
       }),
     ).toBeVisible();
+
+    await expect(
+      footer.getByRole("link", {
+        name: "Animal Corporation",
+        exact: true,
+      }),
+    ).toHaveAttribute("href", "https://animal.hamltail.dev/");
 
     // Back to top
     await page.evaluate(() => {

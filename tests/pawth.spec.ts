@@ -159,9 +159,16 @@ test("Pawth LPの主要コンテンツが正しく表示される", async ({ pag
 
   await expect(
     footer.getByText(`© ${new Date().getFullYear()} Pawth`, {
-      exact: true,
+      exact: false,
     }),
   ).toBeVisible();
+
+  await expect(
+    footer.getByRole("link", {
+      name: "Animal Corporation",
+      exact: true,
+    }),
+  ).toHaveAttribute("href", "https://animal.hamltail.dev/");
 
   // Theme switcher
   for (const name of ["ライトテーマ", "ダークテーマ", "システムテーマ"]) {
