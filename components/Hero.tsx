@@ -2,9 +2,11 @@ import { useTranslations } from "next-intl";
 
 import Container from "./Container";
 import HeroPawTrail from "./HeroPawTrail";
+import styles from "./HeroTitle.module.css";
 
 export default function Hero() {
   const t = useTranslations("Hero");
+  const title = t("title");
 
   return (
     <section className="relative overflow-visible py-20 md:py-28">
@@ -17,11 +19,24 @@ export default function Hero() {
               {t("label")}
             </p>
 
-            <h1 className="hero-title flex items-center justify-center gap-3 text-[clamp(3.5rem,9vw,7rem)] leading-none font-black tracking-tight">
-              {t("title")}
+            <h1
+              className="hero-title flex items-center justify-center gap-3 text-[clamp(3.5rem,9vw,7rem)] leading-none font-black tracking-tight"
+              aria-label={title}
+            >
+              <span className="inline-flex" aria-hidden="true">
+                {Array.from(title).map((letter, index) => (
+                  <span
+                    key={index}
+                    className={styles.letter}
+                    style={{ animationDelay: `${index * 180}ms` }}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </span>
 
               <span
-                className="hero-paw-wrapper inline-block h-[0.96em] w-[0.96em] shrink-0"
+                className={`hero-paw-wrapper inline-block h-[0.96em] w-[0.96em] shrink-0 ${styles.pawEntrance}`}
                 aria-hidden="true"
               >
                 <span className="hero-paw" />
