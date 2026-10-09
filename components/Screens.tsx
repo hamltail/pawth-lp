@@ -7,6 +7,7 @@ import calendarImage from "../public/images/pawth-calendar.webp";
 import settingsImage from "../public/images/pawth-settings.webp";
 import timelineImage from "../public/images/pawth-timeline.webp";
 import Container from "./Container";
+import FadeIn from "./FadeIn";
 
 type ScreenImage = {
   src: string;
@@ -47,17 +48,19 @@ export default function Screens({ onImageClick }: ScreensProps) {
   return (
     <section id="screens" className="py-20 md:py-28">
       <Container>
-        <div className="mb-14 md:mb-20">
-          <p className="mb-4 text-sm font-bold tracking-[0.14em] text-(--accent) uppercase">
-            {t("label")}
-          </p>
+        <FadeIn>
+          <div className="mb-14 md:mb-20">
+            <p className="mb-4 text-sm font-bold tracking-[0.14em] text-(--accent) uppercase">
+              {t("label")}
+            </p>
 
-          <h2 className="title-glow title-gradient text-[clamp(2rem,5vw,3.5rem)] leading-tight font-black">
-            {t("title")}
-          </h2>
+            <h2 className="title-glow title-gradient text-[clamp(2rem,5vw,3.5rem)] leading-tight font-black">
+              {t("title")}
+            </h2>
 
-          <p className="mt-5 leading-8 text-(--muted)">{t("description")}</p>
-        </div>
+            <p className="mt-5 leading-8 text-(--muted)">{t("description")}</p>
+          </div>
+        </FadeIn>
 
         <div className="space-y-24 md:space-y-32">
           {screens.map((screen, index) => {
@@ -65,47 +68,46 @@ export default function Screens({ onImageClick }: ScreensProps) {
             const isReversed = index % 2 === 1;
 
             return (
-              <article
-                key={screen.id}
-                className="grid items-center gap-8 md:grid-cols-2 md:gap-16"
-              >
-                <div className={isReversed ? "md:order-2" : "md:order-1"}>
-                  <button
-                    type="button"
-                    className="group relative w-full overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--screen-shadow)"
-                    onClick={() =>
-                      onImageClick({
-                        src: screen.modalSrc,
-                        alt,
-                      })
-                    }
-                    aria-label={t(`${screen.id}.button`)}
-                  >
-                    <Image
-                      src={screen.src}
-                      alt={alt}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      loading={index === 0 ? "eager" : "lazy"}
-                      draggable={false}
-                      className="h-auto w-full select-none transition-transform duration-500 group-hover:scale-[1.01]"
-                    />
-                  </button>
-                </div>
+              <FadeIn key={screen.id}>
+                <article className="grid items-center gap-8 md:grid-cols-2 md:gap-16">
+                  <div className={isReversed ? "md:order-2" : "md:order-1"}>
+                    <button
+                      type="button"
+                      className="group relative w-full overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-(--screen-shadow)"
+                      onClick={() =>
+                        onImageClick({
+                          src: screen.modalSrc,
+                          alt,
+                        })
+                      }
+                      aria-label={t(`${screen.id}.button`)}
+                    >
+                      <Image
+                        src={screen.src}
+                        alt={alt}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        draggable={false}
+                        className="h-auto w-full select-none transition-transform duration-500 group-hover:scale-[1.01]"
+                      />
+                    </button>
+                  </div>
 
-                <div className={isReversed ? "md:order-1" : "md:order-2"}>
-                  <p className="mb-3 text-sm font-bold tracking-[0.12em] text-(--accent)">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
+                  <div className={isReversed ? "md:order-1" : "md:order-2"}>
+                    <p className="mb-3 text-sm font-bold tracking-[0.12em] text-(--accent)">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
 
-                  <h3 className="text-2xl font-black md:text-3xl">
-                    {t(`${screen.id}.title`)}
-                  </h3>
+                    <h3 className="text-2xl font-black md:text-3xl">
+                      {t(`${screen.id}.title`)}
+                    </h3>
 
-                  <p className="mt-4 leading-8 text-(--muted)">
-                    {t(`${screen.id}.description`)}
-                  </p>
-                </div>
-              </article>
+                    <p className="mt-4 leading-8 text-(--muted)">
+                      {t(`${screen.id}.description`)}
+                    </p>
+                  </div>
+                </article>
+              </FadeIn>
             );
           })}
         </div>
