@@ -7,6 +7,32 @@
   animation: hero-letter-appear 500ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
+.firstLetter {
+  display: inline-grid;
+  place-items: center;
+}
+
+.lowercaseP,
+.uppercaseP {
+  grid-area: 1 / 1;
+  display: inline-block;
+  transform-origin: center;
+}
+
+.uppercaseP {
+  opacity: 0;
+  transform: scale(0.65);
+}
+
+.lowercaseExit {
+  animation: hero-lowercase-exit 180ms ease-in 1520ms both;
+}
+
+.uppercaseEntrance {
+  animation: hero-uppercase-bounce 480ms cubic-bezier(0.2, 0.8, 0.2, 1) 1520ms
+    both;
+}
+
 .pawHidden {
   opacity: 0;
   transform: scale(0.35);
@@ -14,7 +40,7 @@
 
 .pawEntrance {
   transform-origin: center;
-  animation: hero-paw-pop 550ms cubic-bezier(0.2, 0.8, 0.2, 1) 1050ms both;
+  animation: hero-paw-pop 600ms cubic-bezier(0.2, 0.8, 0.2, 1) 1050ms both;
 }
 
 .copy {
@@ -37,6 +63,43 @@
   }
 }
 
+@keyframes hero-lowercase-exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes hero-uppercase-bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+
+  32% {
+    opacity: 1;
+    transform: scale(1.27);
+  }
+
+  58% {
+    transform: scale(0.87);
+  }
+
+  78% {
+    transform: scale(1.09);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes hero-paw-pop {
   0% {
     opacity: 0;
@@ -44,11 +107,12 @@
   }
 
   55% {
-    opacity: 1;
+    opacity: 0.75;
     transform: scale(1.618);
   }
 
   78% {
+    opacity: 0.88;
     transform: scale(0.93);
   }
 

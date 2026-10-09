@@ -14,6 +14,7 @@ const TRAIL_START_DELAY = 600;
 export default function Hero() {
   const t = useTranslations("Hero");
   const title = t("title");
+  const letters = Array.from(title.toLowerCase());
   const [stage, setStage] = useState<IntroStage>("idle");
 
   useEffect(() => {
@@ -58,13 +59,35 @@ export default function Hero() {
               aria-label={title}
             >
               <span className="inline-flex" aria-hidden="true">
-                {Array.from(title).map((letter, index) => (
+                {letters.map((letter, index) => (
                   <span
                     key={index}
                     className={`${styles.letter} ${isTitlePlaying ? styles.letterEntrance : ""}`}
                     style={{ animationDelay: `${index * 180}ms` }}
                   >
-                    {letter}
+                    {index === 0 ? (
+                      <span className={styles.firstLetter}>
+                        <span
+                          className={`${styles.lowercaseP} ${isTitlePlaying ? styles.lowercaseExit : ""}`}
+                        >
+                          {letter}
+                        </span>
+                        <span
+                          className={`${styles.uppercaseP} ${isTitlePlaying ? styles.uppercaseEntrance : ""}`}
+                          onAnimationEnd={(event) => {
+                            if (event.target === event.currentTarget) {
+                              setStage((current) =>
+                                current === "title" ? "copy" : current,
+                              );
+                            }
+                          }}
+                        >
+                          {letter.toUpperCase()}
+                        </span>
+                      </span>
+                    ) : (
+                      letter
+                    )}
                   </span>
                 ))}
               </span>
@@ -72,13 +95,6 @@ export default function Hero() {
               <span
                 className={`hero-paw-wrapper inline-block h-[0.96em] w-[0.96em] shrink-0 ${styles.pawHidden} ${isTitlePlaying ? styles.pawEntrance : ""}`}
                 aria-hidden="true"
-                onAnimationEnd={(event) => {
-                  if (event.target === event.currentTarget) {
-                    setStage((current) =>
-                      current === "title" ? "copy" : current,
-                    );
-                  }
-                }}
               >
                 <span className="hero-paw" />
               </span>
