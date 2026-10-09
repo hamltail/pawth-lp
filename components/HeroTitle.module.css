@@ -1,11 +1,28 @@
 .letter {
   display: inline-block;
+  opacity: 0;
+}
+
+.letterEntrance {
   animation: hero-letter-appear 500ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.pawHidden {
+  opacity: 0;
+  transform: scale(0.35);
 }
 
 .pawEntrance {
   transform-origin: center;
   animation: hero-paw-pop 550ms cubic-bezier(0.2, 0.8, 0.2, 1) 1050ms both;
+}
+
+.copy {
+  opacity: 0;
+}
+
+.copyVisible {
+  animation: hero-copy-fade-in 600ms ease-out both;
 }
 
 @keyframes hero-letter-appear {
@@ -38,5 +55,15 @@
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes hero-copy-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

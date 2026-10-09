@@ -1,21 +1,55 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import Container from "./Container";
 import HeroPawTrail from "./HeroPawTrail";
 import styles from "./HeroTitle.module.css";
 
+type IntroStage = "idle" | "title" | "copy" | "pause" | "trail";
+
+const TRAIL_START_DELAY = 600;
+
 export default function Hero() {
   const t = useTranslations("Hero");
   const title = t("title");
+  const [stage, setStage] = useState<IntroStage>("idle");
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      setStage("title");
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    if (stage !== "pause") {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setStage("trail");
+    }, TRAIL_START_DELAY);
+
+    return () => window.clearTimeout(timer);
+  }, [stage]);
+
+  const isTitlePlaying = stage !== "idle";
+  const isCopyVisible =
+    stage === "copy" || stage === "pause" || stage === "trail";
 
   return (
     <section className="relative overflow-visible py-20 md:py-28">
       <Container>
         <div className="relative isolate mx-auto max-w-4xl text-center">
-          <HeroPawTrail />
+          {stage === "trail" && <HeroPawTrail />}
 
           <div className="relative z-10">
-            <p className="mb-5 text-sm font-bold tracking-[0.14em] text-(--accent) uppercase">
+            <p
+              className={`mb-5 text-sm font-bold tracking-[0.14em] text-(--accent) uppercase ${styles.copy} ${isCopyVisible ? styles.copyVisible : ""}`}
+            >
               {t("label")}
             </p>
 
@@ -27,7 +61,7 @@ export default function Hero() {
                 {Array.from(title).map((letter, index) => (
                   <span
                     key={index}
-                    className={styles.letter}
+                    className={`${styles.letter} ${isTitlePlaying ? styles.letterEntrance : ""}`}
                     style={{ animationDelay: `${index * 180}ms` }}
                   >
                     {letter}
@@ -36,18 +70,36 @@ export default function Hero() {
               </span>
 
               <span
-                className={`hero-paw-wrapper inline-block h-[0.96em] w-[0.96em] shrink-0 ${styles.pawEntrance}`}
+                className={`hero-paw-wrapper inline-block h-[0.96em] w-[0.96em] shrink-0 ${styles.pawHidden} ${isTitlePlaying ? styles.pawEntrance : ""}`}
                 aria-hidden="true"
+                onAnimationEnd={(event) => {
+                  if (event.target === event.currentTarget) {
+                    setStage((current) =>
+                      current === "title" ? "copy" : current,
+                    );
+                  }
+                }}
               >
                 <span className="hero-paw" />
               </span>
             </h1>
 
-            <p className="mt-8 text-[clamp(1.25rem,2vw,1.6rem)] leading-relaxed font-bold">
+            <p
+              className={`mt-8 text-[clamp(1.25rem,2vw,1.6rem)] leading-relaxed font-bold ${styles.copy} ${isCopyVisible ? styles.copyVisible : ""}`}
+            >
               {t("lead")}
             </p>
 
-            <p className="mx-auto mt-5 text-base leading-8 text-(--muted) md:text-lg">
+            <p
+              className={`mx-auto mt-5 text-base leading-8 text-(--muted) md:text-lg ${styles.copy} ${isCopyVisible ? styles.copyVisible : ""}`}
+              onAnimationEnd={(event) => {
+                if (event.target === event.currentTarget) {
+                  setStage((current) =>
+                    current === "copy" ? "pause" : current,
+                  );
+                }
+              }}
+            >
               {t("description")}
             </p>
           </div>
