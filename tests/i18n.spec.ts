@@ -18,7 +18,7 @@ test.describe("English locale", () => {
 
     await expect(
       page.getByText(
-        "A daily journal for leaving one small footprint each day",
+        "A small web journaling app for capturing everyday moments.",
         {
           exact: true,
         },
@@ -160,7 +160,7 @@ test.describe("English locale", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "ja");
 
     await expect(
-      page.getByText("日々の足あとを残す、1日1投稿の日記アプリ", {
+      page.getByText("日々の足あとを描く、小さなWeb日記アプリ", {
         exact: true,
       }),
     ).toBeVisible();
@@ -218,7 +218,7 @@ test.describe("English locale", () => {
 
     await expect(
       page.getByText(
-        "A daily journal for leaving one small footprint each day",
+        "A small web journaling app for capturing everyday moments.",
         {
           exact: true,
         },
