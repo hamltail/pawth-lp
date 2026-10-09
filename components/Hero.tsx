@@ -42,7 +42,7 @@ export default function Hero() {
     stage === "copy" || stage === "pause" || stage === "trail";
 
   return (
-    <section className="relative flex min-h-svh flex-col justify-center overflow-visible pt-20 pb-32 md:pt-28 md:pb-36">
+    <section className="relative flex min-h-svh flex-col justify-center overflow-x-clip pt-20 pb-32 md:pt-28 md:pb-36">
       <Container>
         <div className="relative isolate mx-auto max-w-4xl text-center">
           {stage === "trail" && <HeroPawTrail />}
