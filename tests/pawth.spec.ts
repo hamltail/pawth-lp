@@ -16,7 +16,7 @@ test("Pawth LPの主要コンテンツが正しく表示される", async ({ pag
   ).toBeVisible();
 
   await expect(
-    hero.getByText("日々の足あとを残す、1日1投稿の日記アプリ", {
+    hero.getByText("日々の足あとを描く、小さなWeb日記アプリ", {
       exact: true,
     }),
   ).toBeVisible();
