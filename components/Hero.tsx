@@ -42,7 +42,7 @@ export default function Hero() {
     stage === "copy" || stage === "pause" || stage === "trail";
 
   return (
-    <section className="relative overflow-visible py-20 md:py-28">
+    <section className="relative flex min-h-svh flex-col justify-center overflow-visible pt-20 pb-32 md:pt-28 md:pb-36">
       <Container>
         <div className="relative isolate mx-auto max-w-4xl text-center">
           {stage === "trail" && <HeroPawTrail />}
@@ -121,6 +121,14 @@ export default function Hero() {
           </div>
         </div>
       </Container>
+
+      <a
+        href="#screens"
+        className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-(--muted) transition-opacity hover:opacity-70 md:bottom-8"
+      >
+        SCROLL
+        <span aria-hidden="true" className="h-8 w-px bg-current opacity-60" />
+      </a>
     </section>
   );
 }
