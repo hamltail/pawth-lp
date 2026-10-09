@@ -124,7 +124,9 @@ export default function Hero() {
 
       <a
         href="#screens"
-        className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-(--muted) transition-opacity hover:opacity-70 md:bottom-8"
+        aria-hidden={!isCopyVisible}
+        tabIndex={isCopyVisible ? 0 : -1}
+        className={`absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-(--muted) transition-opacity hover:opacity-70 md:bottom-8 ${styles.copy} ${isCopyVisible ? styles.copyVisible : "pointer-events-none"}`}
       >
         SCROLL
         <span aria-hidden="true" className="h-8 w-px bg-current opacity-60" />
