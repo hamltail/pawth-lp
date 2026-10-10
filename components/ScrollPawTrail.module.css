@@ -1,0 +1,53 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent calc(var(--paw-front, 0px) - 580px),
+    #000 calc(var(--paw-front, 0px) - 340px),
+    #000 calc(var(--paw-front, 0px) - 80px),
+    transparent var(--paw-front, 0px)
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent calc(var(--paw-front, 0px) - 580px),
+    #000 calc(var(--paw-front, 0px) - 340px),
+    #000 calc(var(--paw-front, 0px) - 80px),
+    transparent var(--paw-front, 0px)
+  );
+}
+
+.paw {
+  position: absolute;
+  display: block;
+  width: clamp(34px, 5vw, 58px);
+  aspect-ratio: 1;
+  background: var(--accent);
+  opacity: 0.18;
+
+  -webkit-mask-image: url("/favicon.svg");
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+
+  mask-image: url("/favicon.svg");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.paw:nth-child(3n + 2) {
+  background: var(--primary);
+  opacity: 0.12;
+}
+
+.paw:nth-child(3n) {
+  background: color-mix(in srgb, var(--accent) 65%, var(--primary));
+  opacity: 0.15;
+}
