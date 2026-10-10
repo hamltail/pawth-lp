@@ -31,6 +31,11 @@ test("Pawth LPの見た目が基準画像と一致する", async ({ page }) => {
     window.scrollTo(0, 0);
   });
 
+  // Next.jsの開発用インジケーターを撮影対象から除外
+  await page.addStyleTag({
+    content: "nextjs-portal { display: none !important; }",
+  });
+
   await expect(page).toHaveScreenshot("pawth-lp.png", {
     fullPage: true,
     animations: "disabled",
