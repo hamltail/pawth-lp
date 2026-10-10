@@ -171,8 +171,24 @@ test("Pawth LPの主要コンテンツが正しく表示される", async ({ pag
   ).toHaveAttribute("href", "https://animal.hamltail.dev/");
 
   // Theme switcher
+  const themeToggle = page.getByRole("button", {
+    name: "テーマを変更",
+    exact: true,
+  });
+
+  await expect(themeToggle).toBeEnabled();
+  await expect(themeToggle).toHaveAttribute("aria-expanded", "false");
+
+  await themeToggle.click();
+
+  await expect(themeToggle).toHaveAttribute("aria-expanded", "true");
+
+  const themeOptions = page.getByRole("group", {
+    name: "テーマを変更",
+  });
+
   for (const name of ["ライトテーマ", "ダークテーマ", "システムテーマ"]) {
-    const button = page.getByRole("button", {
+    const button = themeOptions.getByRole("button", {
       name,
       exact: true,
     });
@@ -180,6 +196,10 @@ test("Pawth LPの主要コンテンツが正しく表示される", async ({ pag
     await expect(button).toBeEnabled();
     await expect(button).toHaveAttribute("aria-pressed");
   }
+
+  await page.keyboard.press("Escape");
+
+  await expect(themeToggle).toHaveAttribute("aria-expanded", "false");
 
   // Back to top
   await expect(
@@ -316,42 +336,76 @@ test("画像モーダルの背景をクリックすると閉じられる", async
 test("テーマを切り替えられる", async ({ page }) => {
   await page.goto("/");
 
-  const lightButton = page.getByRole("button", {
+  const themeToggle = page.getByRole("button", {
+    name: "テーマを変更",
+    exact: true,
+  });
+
+  const themeOptions = page.getByRole("group", {
+    name: "テーマを変更",
+  });
+
+  const lightButton = themeOptions.getByRole("button", {
     name: "ライトテーマ",
     exact: true,
   });
 
-  const darkButton = page.getByRole("button", {
+  const darkButton = themeOptions.getByRole("button", {
     name: "ダークテーマ",
     exact: true,
   });
 
-  const systemButton = page.getByRole("button", {
+  const systemButton = themeOptions.getByRole("button", {
     name: "システムテーマ",
     exact: true,
   });
 
-  await expect(lightButton).toBeEnabled();
-  await expect(darkButton).toBeEnabled();
-  await expect(systemButton).toBeEnabled();
+  await expect(themeToggle).toBeEnabled();
+  await expect(themeToggle).toHaveAttribute("aria-expanded", "false");
 
+  // ダークテーマ
+  await themeToggle.click();
   await darkButton.click();
+
+  await expect(themeToggle).toHaveAttribute("aria-expanded", "false");
+  await expect(page.locator("html")).toHaveClass(/dark/);
+
+  await themeToggle.click();
 
   await expect(darkButton).toHaveAttribute("aria-pressed", "true");
   await expect(lightButton).toHaveAttribute("aria-pressed", "false");
   await expect(systemButton).toHaveAttribute("aria-pressed", "false");
-  await expect(page.locator("html")).toHaveClass(/dark/);
 
+  // ライトテーマ
   await lightButton.click();
+
+  await expect(themeToggle).toHaveAttribute("aria-expanded", "false");
+  await expect(page.locator("html")).not.toHaveClass(/dark/);
+
+  await themeToggle.click();
 
   await expect(lightButton).toHaveAttribute("aria-pressed", "true");
   await expect(darkButton).toHaveAttribute("aria-pressed", "false");
   await expect(systemButton).toHaveAttribute("aria-pressed", "false");
-  await expect(page.locator("html")).not.toHaveClass(/dark/);
 
+  // システムテーマ
   await systemButton.click();
+
+  await expect(themeToggle).toHaveAttribute("aria-expanded", "false");
+
+  await themeToggle.click();
 
   await expect(systemButton).toHaveAttribute("aria-pressed", "true");
   await expect(lightButton).toHaveAttribute("aria-pressed", "false");
   await expect(darkButton).toHaveAttribute("aria-pressed", "false");
+
+  // Escキーで閉じられる
+  await page.keyboard.press("Escape");
+  await expect(themeToggle).toHaveAttribute("aria-expanded", "false");
+
+  // パネル外クリックで閉じられる
+  await themeToggle.click();
+  await page.locator("h1").click();
+
+  await expect(themeToggle).toHaveAttribute("aria-expanded", "false");
 });

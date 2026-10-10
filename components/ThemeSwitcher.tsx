@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { useTheme } from "./ThemeProvider";
 
@@ -11,6 +11,7 @@ const themes = [
     labelKey: "light",
     icon: (
       <svg
+        className="size-full"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -36,6 +37,7 @@ const themes = [
     labelKey: "dark",
     icon: (
       <svg
+        className="size-full"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -53,6 +55,7 @@ const themes = [
     labelKey: "system",
     icon: (
       <svg
+        className="size-full"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -75,37 +78,112 @@ export default function ThemeSwitcher() {
   const t = useTranslations("ThemeSwitcher");
   const { theme, setTheme } = useTheme();
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
   const mounted = useSyncExternalStore(
     subscribe,
     () => true,
     () => false,
   );
 
-  return (
-    <div className="absolute top-5 right-5 z-9998 flex gap-1 rounded-full border border-(--border) bg-(--panel) p-1 shadow-(--shadow) backdrop-blur-md">
-      {themes.map((item) => {
-        const isActive = mounted && theme === item.value;
-        const label = t(item.labelKey);
+  const selectedTheme = mounted
+    ? (themes.find((item) => item.value === theme) ?? themes[2])
+    : themes[2];
 
-        return (
-          <button
-            key={item.value}
-            type="button"
-            className={`grid size-9 cursor-pointer place-items-center rounded-full transition-colors ${
-              isActive
-                ? "bg-(--primary) text-white"
-                : "text-(--muted) hover:bg-(--surface)"
-            }`}
-            aria-label={label}
-            aria-pressed={isActive}
-            title={label}
-            disabled={!mounted}
-            onClick={() => setTheme(item.value)}
-          >
-            <span className="size-4">{item.icon}</span>
-          </button>
-        );
-      })}
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  return (
+    <div
+      ref={wrapperRef}
+      className="absolute top-5 right-5 z-9998"
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setIsOpen(false);
+        }
+      }}
+    >
+      <button
+        ref={triggerRef}
+        type="button"
+        disabled={!mounted}
+        aria-label={t("change")}
+        aria-expanded={isOpen}
+        aria-controls={isOpen ? "theme-options" : undefined}
+        title={t("change")}
+        onClick={() => setIsOpen((current) => !current)}
+        className="grid size-12 cursor-pointer place-items-center rounded-full border border-(--border) bg-(--panel) text-(--text) shadow-(--shadow) backdrop-blur-md transition-colors hover:bg-(--surface)"
+      >
+        <span aria-hidden="true" className="size-5">
+          {selectedTheme.icon}
+        </span>
+      </button>
+
+      {isOpen && (
+        <div
+          id="theme-options"
+          role="group"
+          aria-label={t("change")}
+          className="absolute top-full right-0 mt-2 flex gap-1 rounded-full border border-(--border) bg-(--panel) p-1 shadow-(--shadow) backdrop-blur-md"
+        >
+          {themes.map((item) => {
+            const isActive = theme === item.value;
+            const label = t(item.labelKey);
+
+            return (
+              <button
+                key={item.value}
+                type="button"
+                aria-label={label}
+                aria-pressed={isActive}
+                title={label}
+                onClick={() => {
+                  setTheme(item.value);
+                  setIsOpen(false);
+                  triggerRef.current?.focus();
+                }}
+                className={`grid size-9 cursor-pointer place-items-center rounded-full transition-colors ${
+                  isActive
+                    ? "bg-(--primary) text-white"
+                    : "text-(--muted) hover:bg-(--surface)"
+                }`}
+              >
+                <span className="size-4">{item.icon}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

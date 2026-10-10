@@ -92,14 +92,30 @@ test.describe("English locale", () => {
     ).toBeVisible();
 
     // Theme switcher
+    const themeToggle = page.getByRole("button", {
+      name: "Change theme",
+      exact: true,
+    });
+
+    await expect(themeToggle).toBeEnabled();
+    await themeToggle.click();
+
+    const themeOptions = page.getByRole("group", {
+      name: "Change theme",
+    });
+
     for (const name of ["Light theme", "Dark theme", "System theme"]) {
       await expect(
-        page.getByRole("button", {
+        themeOptions.getByRole("button", {
           name,
           exact: true,
         }),
       ).toBeEnabled();
     }
+
+    await page.keyboard.press("Escape");
+
+    await expect(themeToggle).toHaveAttribute("aria-expanded", "false");
 
     // Language switcher
     const footer = page.locator("footer");

@@ -71,6 +71,7 @@
     "copyright": "© {year} Pawth"
   },
   "ThemeSwitcher": {
+    "change": "テーマを変更",
     "light": "ライトテーマ",
     "dark": "ダークテーマ",
     "system": "システムテーマ"
