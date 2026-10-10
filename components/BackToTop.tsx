@@ -36,12 +36,12 @@ export default function BackToTop() {
       className={`
         back-to-top fixed right-5 bottom-5 z-9999
         inline-flex size-14 cursor-pointer items-center justify-center
-        rounded-full border border-white/20
-        bg-(--primary) text-white
-        transition-[opacity,transform,visibility,background-color]
+        rounded-full border border-(--border)
+        bg-(--panel) text-(--muted) backdrop-blur-md
+        transition-[opacity,transform,visibility,background-color,box-shadow]
         duration-300 ease-out
-        hover:-translate-y-0.5 hover:-rotate-6 hover:bg-violet-500
-        dark:hover:bg-violet-700
+        hover:-translate-y-0.5 hover:-rotate-6
+        hover:bg-(--surface) hover:text-(--text)
         focus-visible:outline-2 focus-visible:outline-offset-4
         focus-visible:outline-(--primary)
         max-[720px]:right-[0.9rem] max-[720px]:bottom-[0.9rem]

@@ -142,7 +142,7 @@ export default function ThemeSwitcher() {
         aria-controls={isOpen ? "theme-options" : undefined}
         title={t("change")}
         onClick={() => setIsOpen((current) => !current)}
-        className="grid size-12 cursor-pointer place-items-center rounded-full border border-(--border) bg-(--panel) text-(--text) shadow-(--shadow) backdrop-blur-md transition-colors hover:bg-(--surface)"
+        className="theme-switcher-trigger grid size-12 cursor-pointer place-items-center rounded-full border border-(--border) bg-(--panel) text-(--text) shadow-(--shadow) backdrop-blur-md transition-colors hover:bg-(--surface)"
       >
         <span aria-hidden="true" className="size-5">
           {selectedTheme.icon}
