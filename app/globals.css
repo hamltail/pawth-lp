@@ -87,14 +87,25 @@ body {
 
 .back-to-top {
   box-shadow:
-    0 8px 20px rgb(0 0 0 / 28%),
-    0 3px 8px rgb(0 0 0 / 18%);
+    0 3px 12px rgb(25 27 36 / 6%),
+    0 0 10px rgb(167 139 250 / 5%);
 }
 
-.dark .back-to-top {
+.back-to-top:hover {
   box-shadow:
-    0 0 14px rgb(167 139 250 / 40%),
-    0 0 30px rgb(167 139 250 / 24%);
+    0 5px 16px rgb(25 27 36 / 9%),
+    0 0 14px rgb(167 139 250 / 9%);
+}
+
+/* Subtle glow for circular controls in dark mode */
+
+.dark .theme-switcher-trigger,
+.dark .back-to-top,
+.dark .back-to-top:hover {
+  box-shadow:
+    var(--shadow),
+    0 0 12px rgb(167 139 250 / 18%),
+    0 0 26px rgb(249 168 212 / 10%);
 }
 
 /* Image modal */
@@ -120,7 +131,7 @@ body {
 }
 
 .modal-close-button:active {
-  transform: rotate(-4deg) scale(0.94);
+  transform: scale(0.94) rotate(-4deg);
 }
 
 @keyframes modal-backdrop-in {
