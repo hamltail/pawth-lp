@@ -1,0 +1,14 @@
+{
+  "name": "pawth-lp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page for Pawth, a daily journaling app focused on reflection and habit building",
+  "author": "h-waji (hamltail)",
+  "license": "UNLICENSED",
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^3.9.10"
+  }
+}
