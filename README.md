@@ -4,6 +4,13 @@
 
 UI・UXや品質改善、Web開発の技術検証を目的に制作しています。
 
+## Latest Release
+
+### 2026-10-17
+
+- 開発環境の管理負担を軽減するため、Visual Regression Testを廃止しました。
+- CodeQLのワークフローを削除し、READMEの技術スタックを整理しました。
+
 ## Live Demo
 
 🌐 [Webサイトを見る](https://pawth-lp.hamltail.dev/)
@@ -17,7 +24,7 @@ Alternative: [Vercel Deployment](https://pawth-lp.vercel.app/)
 | Design         | Krita                                                    |
 | Frontend       | TypeScript, React, Next.js, Tailwind CSS, next-intl      |
 | Testing        | Vitest, Playwright, Stryker, axe-core, Lighthouse CI, k6 |
-| Security       | OWASP ZAP, CodeQL                                        |
+| Security       | OWASP ZAP                                                |
 | Infrastructure | Docker, Vercel, GitHub Actions                           |
 
 ## Technical Decisions
