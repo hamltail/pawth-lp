@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Landing page for Pawth, a daily journaling app focused on reflection and habit building",
-  "author": "h-waji (hamltail)",
+  "author": "hamltail",
   "license": "UNLICENSED",
   "scripts": {
     "format": "prettier --write ."
